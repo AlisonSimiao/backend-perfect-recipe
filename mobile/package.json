@@ -9,10 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/raleway": "^0.2.3",
+    "@expo-google-fonts/roboto": "^0.2.3",
     "@hookform/resolvers": "^4.1.0",
     "@react-navigation/native": "^7.0.14",
     "axios": "^1.7.9",
     "expo": "~52.0.35",
+    "expo-font": "~13.0.3",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-hook-form": "^7.54.2",

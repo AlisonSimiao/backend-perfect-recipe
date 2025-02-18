@@ -3,10 +3,19 @@ export const theme = {
     primary: '#ffffff',
     secondary: '#000000',
 
-    btnColor: '#D50B1F',
+    btnBackground: '#D50B1F',
     btnTextColor: '#ffffff',
-  },
-  fonts: {
+    btnTextColorBlack: '#000000',
 
+    cardBackground: '#f3f5f7',
+  },
+  fontsRoboto: {
+    Regular: 'Roboto_400Regular',
+    Bold: 'Roboto_700Bold',
+    Black: 'Roboto_900Black',
+  },
+  fontsRaleway: {
+    Regular: 'Raleway_400Regular',
+    Bold: 'Raleway_700Bold',
   }
 };
