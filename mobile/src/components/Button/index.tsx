@@ -1,21 +1,23 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import styles from './styles';
+import { theme } from '../../global/theme';
 
 interface ButtonProps {
   title: string;
   onPress: () => void;
-  btnCreateAccount?: boolean;
-  style?: object;
+  createAccount?: boolean;
+
 }
 
-const Button: React.FC<ButtonProps> = ({ title, onPress, btnCreateAccount = false, style }) => {
+const Button: React.FC<ButtonProps> = ({ title, onPress, createAccount = false, ...rest }) => {
   return (
     <TouchableOpacity
-      style={[btnCreateAccount ? styles.btnCreateAccount : styles.btnLogin, style]}
       onPress={onPress}
+      style={createAccount ? styles.btnCreateAccount : styles.btn}
+      {...rest}
     >
-      <Text style={btnCreateAccount ? styles.buttonText : styles.buttonTextBlack}>{title}</Text>
+      <Text style={createAccount ? styles.btnTextCreateAccount : styles.btnText}>{title}</Text>
     </TouchableOpacity>
   );
 };

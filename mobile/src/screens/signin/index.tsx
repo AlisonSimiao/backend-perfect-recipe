@@ -1,5 +1,5 @@
-import React from 'react';
-import { Image, Text, View, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import { Image, Text, View, ImageBackground, Pressable, Touchable, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import Button from '../../components/Button';
 
@@ -7,8 +7,12 @@ import FundoImg from '../../assets/img/Image.png'
 import LogoImg from '../../assets/img/logo.png'
 
 const SignInScreen: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const handleLogin = () => {
-    // Lógica de login
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   };
 
   return (
@@ -19,8 +23,17 @@ const SignInScreen: React.FC = () => {
         <Text style={styles.title}>Receitas perfeitas. Em qualquer quantidade.</Text>
       </View>
       <View style={styles.btnsArea}>
-
+        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Criar conta" onPress={handleLogin} createAccount />
       </View>
+
+      <View style={styles.footer}>
+        <TouchableOpacity activeOpacity={0.7} onPress={() => { }}>
+          <Text style={styles.footerText}>Esqueceu sua senha?</Text>
+        </TouchableOpacity>
+      </View>
+
+
     </ImageBackground>
 
   );

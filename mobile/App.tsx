@@ -34,7 +34,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Signin />
-      <StatusBar style="auto" />
+      <StatusBar style="light" translucent />
     </View>
   );
 }

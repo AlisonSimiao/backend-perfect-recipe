@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { theme } from "../../global/theme";
 
 export const styles = StyleSheet.create({
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    top: 100,
+    top: Platform.OS === 'ios' ? 50 : 150,
   },
   logo: {
     width: 191,
@@ -35,11 +35,31 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: theme.colors.primary,
     width: '100%',
-    height: 478,
+    height: Platform.OS === 'ios' ? 290 : 478,
     borderTopEndRadius: 30,
     borderTopStartRadius: 30,
 
     position: 'absolute',
     bottom: 0,
+    padding: 30,
+  },
+  btnSignIn: {
+    width: '100%',
+    height: 56,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.colors.btnBackground,
+  },
+  footer: {
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? -15 : 40,
+    padding: 30,
+  },
+  footerText: {
+    color: theme.colors.btnBackground,
+    fontSize: 24,
+    fontFamily: theme.fontsRaleway.Bold,
   }
+
 });
