@@ -56,6 +56,10 @@ class apiServices {
     };
   }
   static getInstance() {
+    if (!apiServices.instance) {
+      apiServices.instance = new apiServices();
+    }
+    return apiServices.instance;
   }
 
 }

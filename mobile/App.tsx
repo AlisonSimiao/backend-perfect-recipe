@@ -5,7 +5,8 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_900Black } from '@e
 import { theme } from './src/global/theme';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from './src/components/splashscreen';
-import Home from './src/screens/Home';
+import Home from './src/screens/AuthScreens/Home';
+import Signin from './src/screens/signin';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +33,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Home />
+      <Signin />
       <StatusBar style="auto" />
     </View>
   );
