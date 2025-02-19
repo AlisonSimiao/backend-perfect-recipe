@@ -1,42 +1,45 @@
-import React, { useState } from 'react';
-import { Image, Text, View, ImageBackground, Pressable, Touchable, TouchableOpacity } from 'react-native';
-import { styles } from './styles';
+import { ImageBackground, Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import styles from './styles';
+import Input from '../../components/Input';
+import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 
-import FundoImg from '../../assets/img/Image.png'
-import LogoImg from '../../assets/img/logo.png'
-
-const SignInScreen: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const handleLogin = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  };
-
+export default function SignInScreen() {
+  const navigation = useNavigation();
   return (
 
-    <ImageBackground source={FundoImg} style={styles.background}>
-      <View style={styles.logoContainer}>
-        <Image source={LogoImg} style={styles.logo} />
-        <Text style={styles.title}>Receitas perfeitas. Em qualquer quantidade.</Text>
-      </View>
-      <View style={styles.btnsArea}>
-        <Button title="Entrar" onPress={handleLogin} />
-        <Button title="Criar conta" onPress={handleLogin} createAccount />
+    <ImageBackground source={require('../../assets/img/Image.png')} style={styles.container}>
+      <View >
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.header}>
+          <MaterialIcons name="arrow-back" size={47} color="white" />
+          <Text style={styles.headerTitle}>Entrar</Text>
+        </TouchableOpacity>
       </View>
 
-      <View style={styles.footer}>
-        <TouchableOpacity activeOpacity={0.7} onPress={() => { }}>
-          <Text style={styles.footerText}>Esqueceu sua senha?</Text>
-        </TouchableOpacity>
+      <View style={styles.form}>
+        <View style={styles.formContent}>
+          <Text style={styles.formTitle}>Email</Text>
+          <Input placeholder='Email' secureTextEntry={false} />
+          <Input placeholder='Senha' icon />
+
+          <Pressable onPress={() => alert('Esqueceu sua senha?')}>
+            <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
+          </Pressable>
+
+        </View>
+
+        <View style={styles.footer}>
+          <Button title='Entrar' onPress={() => alert('Entrar')} />
+          <Pressable onPress={() => alert('Esqueceu sua senha?')} style={{ marginTop: 10 }}>
+            <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
+          </Pressable>
+        </View>
+
+
       </View>
 
 
     </ImageBackground>
-
   );
-};
-
-export default SignInScreen;
+}

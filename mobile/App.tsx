@@ -6,7 +6,10 @@ import { theme } from './src/global/theme';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from './src/components/splashscreen';
 import Home from './src/screens/AuthScreens/Home';
-import Signin from './src/screens/signin';
+import Signin from './src/screens/Intro';
+import SignInScreen from './src/screens/Intro';
+import Signin1 from './src/screens/signin1';
+import Routes from './src/router';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,18 +35,10 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
-      <Signin />
-      <StatusBar style="light" translucent />
+    <View style={{ flex: 1, backgroundColor: theme.colors.primary }}>
+      <Routes />
+      <StatusBar style="light" />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

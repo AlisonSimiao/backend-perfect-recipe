@@ -6,6 +6,7 @@ export const theme = {
     btnBackground: '#D50B1F',
     btnTextColor: '#ffffff',
     btnTextColorBlack: '#000000',
+    iconColor: '#66324B',
 
     cardBackground: '#f3f5f7',
   },
