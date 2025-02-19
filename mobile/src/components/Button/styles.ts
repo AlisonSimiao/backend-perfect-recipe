@@ -1,11 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { theme } from "../../global/theme";
+
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   btn: {
-    width: '100%',
-    height: 79,
-
+    width: '90%',
+    height: height * 0.08,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -13,16 +14,15 @@ const styles = StyleSheet.create({
   },
   btnText: {
     textAlign: 'center',
-
-    width: '50%',
-    fontSize: 24,
+    width: '80%',
+    fontSize: width * 0.06,
     fontFamily: theme.fontsRaleway.Bold,
     textTransform: 'uppercase',
     color: theme.colors.btnTextColor,
   },
   btnCreateAccount: {
-    width: '100%',
-    height: 79,
+    width: '90%',
+    height: height * 0.08,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   btnTextCreateAccount: {
     color: theme.colors.btnTextColorBlack,
-    fontSize: 24,
+    fontSize: width * 0.06,
     fontFamily: theme.fontsRaleway.Bold,
     textTransform: 'uppercase',
   }

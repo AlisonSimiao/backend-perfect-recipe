@@ -1,5 +1,7 @@
-import { Platform, StyleSheet } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
 import { theme } from "../../global/theme";
+
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
 
@@ -11,55 +13,56 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoContainer: {
-    gap: 40,
+    gap: height * 0.04,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 50 : 150,
+    top: Platform.OS === 'ios' ? height * 0.08 : height * 0.2,
   },
   logo: {
-    width: 191,
-    height: 160,
+    width: width * 0.75,
+    height: height * 0.18,
+    resizeMode: 'contain',
   },
   title: {
     color: theme.colors.btnTextColor,
-    fontSize: 28,
+    fontSize: width * 0.06,
     fontFamily: theme.fontsRoboto.Regular,
     textAlign: 'center',
-    width: 296,
-    height: 100,
+    width: width * 0.85,
+    height: height * 0.09,
   },
   btnsArea: {
-    gap: 16,
+    gap: height * 0.015,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors.primary,
     width: '100%',
-    height: Platform.OS === 'ios' ? 290 : 478,
+    height: Platform.OS === 'ios' ? height * 0.50 : height * 0.4,
     borderTopEndRadius: 30,
     borderTopStartRadius: 30,
-
     position: 'absolute',
     bottom: 0,
-    padding: 30,
+    padding: width * 0.07,
   },
   btnSignIn: {
-    width: '100%',
-    height: 56,
-    borderRadius: 10,
+    width: '90%',
+    height: height * 0.08,
+    borderRadius: 40,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors.btnBackground,
   },
   footer: {
     position: 'absolute',
-    bottom: Platform.OS === 'ios' ? -15 : 40,
-    padding: 30,
+    bottom: height * 0.03,
+    padding: width * 0.07,
   },
   footerText: {
     color: theme.colors.btnBackground,
-    fontSize: 24,
+    fontSize: width * 0.045,
     fontFamily: theme.fontsRaleway.Bold,
+    textDecorationLine: 'underline',
   }
 
 });
