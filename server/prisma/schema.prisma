@@ -14,9 +14,90 @@ datasource db {
 }
 
 model User {
-  id String @id() @default(auto()) @map("_id") @db.ObjectId
-  email String  @unique
-  password String
-  
+  id                 String  @id() @default(auto()) @map("_id") @db.ObjectId
+  name               String
+  nickname           String
+  email              String  @unique
+  password           String
+  requiresPassChange Boolean @default(false)
+  suspended          Boolean @default(false)
+
+  Image   Image  @relation(fields: [imageId], references: [id])
+  imageId String @db.ObjectId
+
   @@map("users")
+}
+
+model ValidationCode {
+  id              String   @id() @default(auto()) @map("_id") @db.ObjectId
+  code            String
+  createdAt       DateTime
+  secondsDuration Int
+}
+
+model Image {
+  id             String           @id() @default(auto()) @map("_id") @db.ObjectId
+  Name           String
+  data           Bytes
+  description    String
+  User           User[]
+  Nicho          Nicho[]
+  Business       Business[]
+  RecipientTypes RecipientTypes[]
+
+  @@map("Images")
+}
+
+model Nicho {
+  id          String     @id() @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  Image       Image      @relation(fields: [imageId], references: [id])
+  imageId     String     @db.ObjectId
+  Recipe      Recipe[]
+  Business    Business[]
+
+  @@map("niches")
+}
+
+model RecipientTypes {
+  id          String   @id() @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  image       Image    @relation(fields: [imageId], references: [id])
+  description String
+  imageId     String   @db.ObjectId
+  Stages      Stages[]
+}
+
+model Stages {
+  id               String         @id() @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  description      String
+  recipient        RecipientTypes @relation(fields: [recipientTypesId], references: [id])
+  recipientTypesId String         @db.ObjectId
+}
+
+model Recipe {
+  id             String   @id() @default(auto()) @map("_id") @db.ObjectId
+  Niches         Nicho    @relation(fields: [nichoId], references: [id])
+  Name           String
+  owner          Business @relation(fields: [businessId], references: [id])
+  portionWeights Json
+  recipeOwnedBy  Boolean
+  addedAt        DateTime
+  nichoId        String   @db.ObjectId
+  businessId     String   @db.ObjectId
+
+  @@map("Recipes")
+}
+
+model Business {
+  id              String   @id() @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  image           Image    @relation(fields: [imageId], references: [id])
+  favoriteRecipes Recipe[]
+  description     String
+  Nicho           Nicho    @relation(fields: [nichoId], references: [id])
+  imageId         String   @db.ObjectId
+  nichoId         String   @db.ObjectId
 }
