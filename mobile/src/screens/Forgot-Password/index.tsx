@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
 
-export default function SignInScreen() {
+export default function ForgotPasswordScreen() {
   const navigation = useNavigation();
   return (
 

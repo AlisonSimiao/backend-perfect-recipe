@@ -1,4 +1,4 @@
-import { ImageBackground, Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
 import Input from '../../components/Input';
@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
 
-export default function SignInScreen() {
+export default function CreateAccountsScreen() {
   const navigation = useNavigation();
   return (
 
@@ -14,7 +14,7 @@ export default function SignInScreen() {
       <View >
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.header}>
           <MaterialIcons name="arrow-back" size={47} color="white" />
-          <Text style={styles.headerTitle}>Entrar</Text>
+          <Text style={styles.headerTitle}>Criar Conta</Text>
         </TouchableOpacity>
       </View>
 
@@ -23,16 +23,12 @@ export default function SignInScreen() {
           <Text style={styles.formTitle}>Email</Text>
           <Input placeholder='Email' secureTextEntry={false} />
           <Input placeholder='Senha' icon />
-
-          <Pressable onPress={() => alert('Esqueceu sua senha?')}>
-            <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
-          </Pressable>
-
+          <Input placeholder='Confirmar Senha' icon />
         </View>
 
         <View style={styles.footer}>
           <Button title='Entrar' onPress={() => alert('Entrar')} />
-          <Link title='Ainda nao tem conta ?' onPress={() => navigation.navigate('CreateAccounts' as never)} />
+          <Link title='Ainda nao tem conta ?' onPress={() => navigation.navigate('SignIn' as never)} />
         </View>
 
 

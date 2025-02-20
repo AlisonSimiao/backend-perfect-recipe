@@ -28,7 +28,7 @@ export default function IntroScreen() {
       </View>
       <View style={styles.btnsArea}>
         <Button title="Entrar" onPress={handleLogin} />
-        <Button title="Criar conta" onPress={handleLogin} createAccount />
+        <Button title="Criar conta" onPress={() => navigation.navigate('CreateAccounts' as never)} createAccount />
       </View>
       <View style={styles.footer}>
         <TouchableOpacity activeOpacity={0.7} onPress={() => { }}>
