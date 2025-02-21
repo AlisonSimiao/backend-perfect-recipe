@@ -42,17 +42,17 @@ export default function Header({ title }: HeaderProps) {
       case ERoutes.ForgotPassword:
         setTheme({
           color: 'white',
-          IconBack: () => <MaterialIcons name={theme?.IconBack} size={theme?.size} color={theme?.color} />,
+          IconBack: () => <MaterialIcons name='arrow-back' size={theme?.size} color={theme?.color} />,
           size: 47
         })
 
         break;
-      case ERoutes.Home:
+      case ERoutes.ReceitaScreen:
         setTheme({
           color: '#66324B',
-          IconBack: 'arrow-back',
+          IconBack: () => <AntDesign name='arrowleft' size={theme?.size} color='#66324B' />,
           size: 47,
-          iconAction: ''
+          iconAction: () => <AntDesign name='plus' size={theme?.size} color='#66324B' />
         })
         break;
       case ERoutes.Product:
