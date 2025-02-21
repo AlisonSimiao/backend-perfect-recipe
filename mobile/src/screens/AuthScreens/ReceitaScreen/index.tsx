@@ -5,7 +5,7 @@ import Header from '../../../components/Header';
 import { theme } from '../../../global/theme';
 
 
-export default function Home() {
+export default function ReceitaScreen() {
   return (
     <View style={{
       backgroundColor: theme.colors.primary,
