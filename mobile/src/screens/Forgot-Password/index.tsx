@@ -23,7 +23,7 @@ export default function ForgotPasswordScreen() {
         </View>
 
         <View style={styles.footer}>
-          <Button title='Enviar' onPress={() => alert('Entrar')} />
+          <Button title='Enviar' onPress={() => navigation.navigate('CodeOtp' as never)} />
           <Link title='Ainda nao tem conta ?' onPress={() => navigation.navigate('CreateAccounts' as never)} />
         </View>
 

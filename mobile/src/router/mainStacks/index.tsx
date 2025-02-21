@@ -25,7 +25,7 @@ const Stack = createNativeStackNavigator();
 
 export function MainStacks() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={ERoutes.ReceitaScreen}>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={ERoutes.Intro} component={IntroScreen} />
       <Stack.Screen name={ERoutes.SignIn} component={SignInScreen} />
       <Stack.Screen name={ERoutes.CreateAccounts} component={CreateAccountsScreen} />

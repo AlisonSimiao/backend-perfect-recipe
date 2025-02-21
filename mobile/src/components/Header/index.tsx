@@ -5,6 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import styles from './styles';
 import { useEffect, useState } from 'react';
 import { ERoutes } from '../../router/MainStacks';
+import { NavigationRoot } from '../../utils';
 
 
 type HeaderProps = {
@@ -40,6 +41,7 @@ export default function Header({ title }: HeaderProps) {
       case ERoutes.SignIn:
       case ERoutes.CreateAccounts:
       case ERoutes.ForgotPassword:
+      case ERoutes.CodeOtp:
         setTheme({
           color: 'white',
           IconBack: () => <MaterialIcons name='arrow-back' size={theme?.size} color={theme?.color} />,
@@ -72,9 +74,8 @@ export default function Header({ title }: HeaderProps) {
     <View style={styles.header}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
 
-        <TouchableOpacity onPress={() => { }}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <theme.IconBack />
-
         </TouchableOpacity>
 
         <Text style={[styles.headerTitle, { color: theme?.color }]}>{title}</Text>
