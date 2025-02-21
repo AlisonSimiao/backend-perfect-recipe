@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 import Link from '../../components/Link';
 import Header from '../../components/Header';
 
-export default function ForgotPasswordScreen() {
+export default function CodeOtpScreen() {
   const navigation = useNavigation();
   return (
 
