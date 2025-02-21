@@ -6,6 +6,7 @@ import LogoImg from '../../assets/img/logo.png';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './styles';
 import Button from '../../components/Button';
+import Link from '../../components/Link';
 
 
 export default function IntroScreen() {
@@ -31,9 +32,7 @@ export default function IntroScreen() {
         <Button title="Criar conta" onPress={() => navigation.navigate('CreateAccounts' as never)} createAccount />
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity activeOpacity={0.7} onPress={() => { }}>
-          <Text style={styles.footerText}>Esqueceu sua senha?</Text>
-        </TouchableOpacity>
+        <Link title='Esqueceu sua senha?' onPress={() => navigation.navigate('ForgotPassword' as never)} />
       </View>
     </ImageBackground>
   );

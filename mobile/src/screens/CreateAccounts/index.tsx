@@ -5,6 +5,7 @@ import Input from '../../components/Input';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
+import Header from '../../components/Header';
 
 export default function CreateAccountsScreen() {
   const navigation = useNavigation();
@@ -12,10 +13,7 @@ export default function CreateAccountsScreen() {
 
     <ImageBackground source={require('../../assets/img/Image.png')} style={styles.container}>
       <View >
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.header}>
-          <MaterialIcons name="arrow-back" size={47} color="white" />
-          <Text style={styles.headerTitle}>Criar Conta</Text>
-        </TouchableOpacity>
+        <Header title='Criar Conta' />
       </View>
 
       <View style={styles.form}>
@@ -27,7 +25,7 @@ export default function CreateAccountsScreen() {
         </View>
 
         <View style={styles.footer}>
-          <Button title='Entrar' onPress={() => alert('Entrar')} />
+          <Button title='Criar Conta' onPress={() => alert('Entrar')} />
           <Link title='Ainda nao tem conta ?' onPress={() => navigation.navigate('SignIn' as never)} />
         </View>
 

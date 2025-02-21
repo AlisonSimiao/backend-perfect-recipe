@@ -7,13 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
 
   },
-  header: {
-    padding: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 20,
-    gap: 10,
-  },
+
   form: {
     padding: 25,
     gap: 10,
@@ -27,15 +21,15 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   formTitle: {
-    color: theme.colors.btnTextColor,
-    fontSize: 24,
-    fontFamily: theme.fontsRoboto.Bold,
+    color: theme.colors.btnTextColorBlack,
+    fontSize: 18,
+    fontFamily: theme.fontsRoboto.Regular,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 20,
+    paddingTop: 86
   },
-  headerTitle: {
-    color: theme.colors.btnTextColor,
-    fontSize: 24,
-    fontFamily: theme.fontsRoboto.Bold,
-  },
+
   forgotPassword: {
     color: theme.colors.btnBackground,
     fontSize: 20,

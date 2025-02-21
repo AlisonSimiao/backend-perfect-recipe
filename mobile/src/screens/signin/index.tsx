@@ -5,6 +5,7 @@ import Input from '../../components/Input';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
+import Header from '../../components/Header';
 
 export default function SignInScreen() {
   const navigation = useNavigation();
@@ -12,10 +13,7 @@ export default function SignInScreen() {
 
     <ImageBackground source={require('../../assets/img/Image.png')} style={styles.container}>
       <View >
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.header}>
-          <MaterialIcons name="arrow-back" size={47} color="white" />
-          <Text style={styles.headerTitle}>Entrar</Text>
-        </TouchableOpacity>
+        <Header title='Entrar' />
       </View>
 
       <View style={styles.form}>
@@ -24,9 +22,7 @@ export default function SignInScreen() {
           <Input placeholder='Email' secureTextEntry={false} />
           <Input placeholder='Senha' icon />
 
-          <Pressable onPress={() => alert('Esqueceu sua senha?')}>
-            <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
-          </Pressable>
+          <Link title='Esqueceu sua senha?' onPress={() => navigation.navigate('ForgotPassword' as never)} />
 
         </View>
 

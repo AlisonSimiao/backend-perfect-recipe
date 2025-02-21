@@ -2,30 +2,18 @@ import { StyleSheet } from 'react-native';
 import { theme } from '../../global/theme';
 
 const styles = StyleSheet.create({
-  headerContainer: {
-    backgroundColor: theme.colors.primary,
-    paddingTop: 20,
-    paddingBottom: 10,
-    elevation: 4, // Sombra para Android
-    shadowColor: '#000', // Sombra para iOS
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-  },
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  header: {
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-  },
-  iconContainer: {
+    padding: 25,
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 20,
+    gap: 10,
   },
-  title: {
-    fontSize: 20,
+  headerTitle: {
     color: theme.colors.btnTextColor,
-    marginLeft: 10,
+    fontSize: 24,
+    fontFamily: theme.fontsRoboto.Bold,
   },
 });
 

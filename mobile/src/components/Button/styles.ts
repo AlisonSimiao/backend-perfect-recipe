@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   btn: {
     width: '90%',
-    height: height * 0.08,
+    height: 65,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   btnCreateAccount: {
     width: '90%',
-    height: height * 0.08,
+    height: 65,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   btnTextCreateAccount: {
     color: theme.colors.btnTextColorBlack,
-    fontSize: width * 0.06,
+    fontSize: 24,
     fontFamily: theme.fontsRaleway.Bold,
     textTransform: 'uppercase',
   }
