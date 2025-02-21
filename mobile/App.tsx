@@ -5,7 +5,7 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_900Black } from '@e
 import { theme } from './src/global/theme';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from './src/components/splashscreen';
-import Home from './src/screens/AuthScreens/Home';
+import Home from './src/screens/AuthScreens/ReceitaScreen';
 import Signin from './src/screens/Intro';
 import SignInScreen from './src/screens/Intro';
 import Signin1 from './src/screens/signin1';
