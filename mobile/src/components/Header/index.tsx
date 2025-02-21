@@ -58,9 +58,9 @@ export default function Header({ title }: HeaderProps) {
       case ERoutes.Product:
         setTheme({
           color: '#66324B',
-          IconBack: () => <AntDesign name='arrowleft' size={theme?.size} color={theme?.color} />,
+          IconBack: () => <AntDesign name='arrowleft' size={theme?.size} color='#66324B' />,
           size: 47,
-          iconAction: () => <AntDesign name='plus' size={theme?.size} color={theme?.color} />
+          iconAction: () => <AntDesign name='plus' size={theme?.size} color='#66324B' />
         })
         break;
     }
