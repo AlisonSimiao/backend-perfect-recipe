@@ -8,6 +8,7 @@ import Link from '../../components/Link';
 import Header from '../../components/Header';
 import { NavigationRoot } from '../../utils';
 import { ERoutes } from '../../router/MainStacks';
+import OtpInput from '../../components/OtpInput';
 
 export default function CodeOtpScreen() {
   const navigation = useNavigation();
@@ -21,7 +22,7 @@ export default function CodeOtpScreen() {
       <View style={styles.form}>
         <View style={styles.formContent}>
           <Text style={styles.formTitle}>Informe seu email para enviarmos o código de verificaçãoInsira o código de verificação..</Text>
-          <Input placeholder='Email' secureTextEntry={false} />
+          <OtpInput />
         </View>
 
         <View style={styles.footer}>
