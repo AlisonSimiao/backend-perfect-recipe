@@ -42,30 +42,34 @@ export default function SignInScreen() {
 
           <View style={styles.formContent}>
             <Text style={styles.formTitle}>Email</Text>
-            <Controller
-              control={control}
-              name='email'
-              rules={{ required: true }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input placeholder='Email' secureTextEntry={false} onChangeText={onChange} onBlur={onBlur} value={value} />
+            <View>
+              <Controller
+                control={control}
+                name='email'
+                rules={{ required: true }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input placeholder='Email' secureTextEntry={false} onChangeText={onChange} onBlur={onBlur} value={value} />
+                )}
+              />
+              {errors.email && (
+                <Text style={styles.error}>Email is required</Text>
               )}
-            />
-            {errors.email && (
-              <Text style={styles.error}>Email is required</Text>
-            )}
+            </View>
 
             <Text style={styles.formTitle}>Senha</Text>
-            <Controller
-              control={control}
-              name='password'
-              rules={{ required: true }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input placeholder='Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} />
+            <View>
+              <Controller
+                control={control}
+                name='password'
+                rules={{ required: true }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input placeholder='Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} />
+                )}
+              />
+              {errors.password && (
+                <Text style={styles.error}>Password is required</Text>
               )}
-            />
-            {errors.password && (
-              <Text style={styles.error}>Password is required</Text>
-            )}
+            </View>
 
             <Link title='Esqueceu sua senha?' onPress={() => navigation.navigate('ForgotPassword' as never)} />
           </View>
