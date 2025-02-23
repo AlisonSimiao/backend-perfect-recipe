@@ -1,24 +1,40 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, TextInput, StyleSheet, StyleProp, ViewStyle } from 'react-native';
 
-const OtpInput = () => {
-  const [otp, setOtp] = useState(['', '', '', '']); // Supondo um OTP de 4 dígitos
+type OtpInputProps = {
+  onChangeText: (text: string) => void;
+  onBlur: () => void;
+  value: string;
+  style?: StyleProp<ViewStyle>;
+  isValid?: boolean;
+}
+
+const OtpInput = ({ onChangeText, onBlur, value, style, isValid }: OtpInputProps) => {
+  const [otp, setOtp] = useState(['', '', '', '']);
+  const inputRefs = useRef<TextInput[]>([]);
 
   const handleChange = (text: string, index: number) => {
-    // Only allow numeric input
-    if (/^[0-9]*$/.test(text) || text === '') { // Allow empty string for deletion
+    if (/^[0-9]*$/.test(text) || text === '') {
       const newOtp = [...otp];
       newOtp[index] = text;
       setOtp(newOtp);
-    }
+      onChangeText(newOtp.join(''));
 
-    // Mover para o próximo campo
-    // if (text && index < otp.length - 1) {
-    //   const nextInput = otpRefs[index + 1];
-    //   if (nextInput) {
-    //     nextInput.focus();
-    //   }
-    // }
+
+      console.log("Aqui", otp);
+
+      // Move to next input if value entered
+      if (text && index < 3) {
+        inputRefs.current[index + 1]?.focus();
+      }
+    }
+  };
+
+  const handleKeyPress = (event: any, index: number) => {
+    // Move to previous input on backspace
+    if (event.nativeEvent.key === 'Backspace' && !otp[index] && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+    }
   };
 
   return (
@@ -26,12 +42,22 @@ const OtpInput = () => {
       {otp.map((digit, index) => (
         <TextInput
           key={index}
-          id={`otp-input-${index}`}
-          value={digit}
+          ref={ref => {
+            if (ref) {
+              inputRefs.current[index] = ref;
+            }
+          }}
+          value={otp[index]}
           onChangeText={(text) => handleChange(text, index)}
+          onKeyPress={(e) => handleKeyPress(e, index)}
+          onBlur={onBlur}
           keyboardType="numeric"
           maxLength={1}
-          style={styles.input}
+
+          style={[styles.input, {
+            borderColor: isValid ? '#f3f5f7' : '#FF0000',
+            borderWidth: 1
+          }]}
         />
       ))}
     </View>
@@ -54,7 +80,8 @@ const styles = StyleSheet.create({
     color: '#66324b',
     fontWeight: 'bold',
     borderRadius: 10,
+    marginBottom: 10
   },
 });
 
-export default OtpInput; 
+export default OtpInput;
