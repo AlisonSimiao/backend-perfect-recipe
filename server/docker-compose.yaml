@@ -24,5 +24,11 @@ services:
     depends_on:
       - mongo
 
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    ports:
+      - "1025:1025"  # Porta SMTP
+      - "8025:8025"  # Interface web
 volumes:
   mongo_data:  
