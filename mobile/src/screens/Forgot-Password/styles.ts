@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.btnTextColorBlack,
     justifyContent: 'space-between',
+    width: '100%',
+    height: 516,
+
 
   },
 

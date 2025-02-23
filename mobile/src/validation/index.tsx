@@ -1,3 +1,3 @@
-import { createUserValidationType, loginValidationType } from './signinValidation'
+import SignInValidation from './signinValidation'
 
-export { createUserValidationType, loginValidationType }
+export { SignInValidation }

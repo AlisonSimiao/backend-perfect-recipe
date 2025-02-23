@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.btnTextColorBlack,
     justifyContent: 'space-between',
+    width: '100%',
+    height: 516,
+
 
   },
   header: {
@@ -50,6 +53,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginBottom: 50,
   },
+  error: {
+    color: theme.colors.btnBackground,
+    fontSize: 12,
+    fontFamily: theme.fontsRoboto.Regular,
+  }
 });
 
 export default styles;

@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.btnTextColorBlack,
     justifyContent: 'space-between',
-
+    width: '100%',
+    height: 516,
   },
   header: {
     padding: 25,
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   form: {
-    padding: 25,
+    padding: 20,
     gap: 10,
     backgroundColor: theme.colors.primary,
     height: '80%',
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   formContent: {
-    gap: 10,
+    gap: 1
   },
   formTitle: {
     color: theme.colors.btnTextColor,
@@ -49,6 +50,11 @@ const styles = StyleSheet.create({
     height: 79,
     borderRadius: 50,
     marginBottom: 50,
+  },
+  error: {
+    color: theme.colors.btnBackground,
+
+    fontFamily: theme.fontsRoboto.Bold,
   },
 
 });
