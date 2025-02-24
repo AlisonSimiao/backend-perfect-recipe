@@ -25,8 +25,8 @@ export default function SignInScreen() {
   const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues: {
-      email: 'admin@admin.com',
-      password: '123456',
+      email: '',
+      password: '',
     },
   });
   const onSubmit = (data: FormData) => {
@@ -69,7 +69,7 @@ export default function SignInScreen() {
                 name='password'
                 rules={{ required: true }}
                 render={({ field: { onChange, onBlur, value } }) => (
-                  <Input placeholder='Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} />
+                  <Input placeholder='Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} secureTextEntry={true}/>
                 )}
               />
               {errors.password && (

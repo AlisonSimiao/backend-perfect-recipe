@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 20,
   },
-  searchAreaInput: {
+  searchAreaInput: {  
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F5F5F5',
@@ -53,5 +53,4 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
   }
 });
-
 

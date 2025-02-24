@@ -10,9 +10,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 type SignUpData = {
-  email: string;
-  password: string;
-  confirmPassword: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
 }
 
 const SignUpSchema = yup.object().shape({
@@ -65,7 +65,7 @@ export default function CreateAccountsScreen() {
                 rules={{ required: true }}
                 name='password'
                 render={({ field: { onChange, onBlur, value } }) => (
-                  <Input placeholder='Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} />
+                  <Input placeholder='Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} secureTextEntry={true}/>
                 )}
               />
               {errors.password && <Text style={styles.error}>{errors.password.message}</Text>}
@@ -76,7 +76,7 @@ export default function CreateAccountsScreen() {
                 rules={{ required: true }}
                 name='confirmPassword'
                 render={({ field: { onChange, onBlur, value } }) => (
-                  <Input placeholder='Confirmar Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} />
+                  <Input placeholder='Confirmar Senha' icon onChangeText={onChange} onBlur={onBlur} value={value} secureTextEntry={true}/>
                 )}
               />
               {errors.confirmPassword && <Text style={styles.error}>{errors.confirmPassword.message}</Text>}

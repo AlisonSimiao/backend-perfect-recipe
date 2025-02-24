@@ -50,8 +50,8 @@ export default function Home() {
 
       <View style={styles.searchArea}>
         <View style={styles.searchAreaInput}>
-          <Input placeholder='Pesquisar receita...' secureTextEntry={false} />
-          <MaterialIcons name='search' size={24} color='#66324B' />
+          <Input placeholder='Pesquisar receita...' secureTextEntry={false} style={{ flex: 1 }} search/>
+          
         </View>
       </View>
 

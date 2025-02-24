@@ -3,7 +3,7 @@ import Header from '../../../components/Header';
 export default function ProductScreen() {
   return (
     <View>
-      <Header title='Product' />
+      <Header title='Product'  />
     </View>
   );
 }

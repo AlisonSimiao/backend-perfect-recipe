@@ -73,7 +73,7 @@ export default function Header({ title, slogan }: HeaderProps) {
           sloganColor: '#66324B',
           IconBack: () => <MaterialIcons name='menu' size={33} color='#66324B' />,
           size: 47,
-          slogan: 'KiSorvetes',
+          slogan: route.name === ERoutes.Home ? 'KiSorvetes' : null,
           iconAction: () => <Image source={require('../../assets/img/business 1.png')} style={styles.iconAction} />
         })
         break;
@@ -97,7 +97,7 @@ export default function Header({ title, slogan }: HeaderProps) {
         theme?.iconAction && (
           <TouchableOpacity onPress={() => { }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <Text style={{ color: '#ff0000', fontSize: 18, fontWeight: 'bold' }}>kiSorvetes</Text>
+              {theme?.slogan && <Text style={{ color: '#ff0000', fontSize: 18, fontWeight: 'bold' }}>{theme.slogan}</Text>}
               <theme.iconAction />
             </View>
 

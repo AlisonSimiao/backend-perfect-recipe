@@ -54,7 +54,7 @@ export default function ForgotPasswordScreen() {
                 rules={{ required: true }}
                 name='email'
                 render={({ field: { onChange, onBlur, value } }) => (
-                  <Input placeholder='Email' secureTextEntry={false} onChangeText={onChange} onBlur={onBlur} value={value} />
+                  <Input placeholder='Email'  onChangeText={onChange} onBlur={onBlur} value={value} />
                 )}
               />
               {errors.email && <Text style={styles.error}>{errors.email.message}</Text>}

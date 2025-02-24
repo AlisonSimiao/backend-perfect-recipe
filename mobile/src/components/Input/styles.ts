@@ -7,8 +7,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     borderRadius: 10,
-    paddingHorizontal: 10,
+   
     alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#f3f5f7'
 
   },
@@ -16,6 +17,16 @@ const styles = StyleSheet.create({
     color: theme.colors.btnTextColor,
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  iconButton: {
+    padding: 10,
+    borderRadius: 50,
+    backgroundColor: '#f3f5f7',
+  },
+  input: {
+    flex: 1,
+    paddingHorizontal: 10,
+    width: '100%',
   }
 });
 
