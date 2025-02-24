@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Image } from 'src/image/entities/image.entity';
 
 export class Usuario {
   @ApiProperty({
@@ -40,4 +41,7 @@ export class Usuario {
     type: 'string',
   })
   imageId: string;
+
+  @ApiProperty()
+  Image?: Image;
 }
