@@ -161,7 +161,33 @@ export class AuthService {
   }
 
   async login(loginAuthDto: LoginAuthDto): Promise<Auth> {
-    return new Auth()
+    const user = await this.prismaService.user.findFirst({
+      where: {
+        email: loginAuthDto.email,
+      },
+      include: {
+        Image: true,
+      },
+    });
+
+    if (!user || !this.crypto.compare(loginAuthDto.password, user.password))
+      throw new UnauthorizedException(`email ou senha invalido`);
+
+    const auth = new Auth();
+    auth.user = user as any;
+    auth.accessToken = this.tokenService.create({ id: user.id });
+    auth.refreshToken = this.tokenService.generate();
+
+    await this.prismaService.refreshToken.update({
+      where: {
+        userId: user.id,
+      },
+      data: {
+        codigo: auth.refreshToken,
+      },
+    });
+
+    return auth;
   }
 
   async create(createAuthDto: CreateAuthDto): Promise<void> {
@@ -189,11 +215,12 @@ export class AuthService {
 
     const codigo = this.tokenService.generate();
 
-    await this.prismaService.refreshToken.create({
+    const item = await this.prismaService.refreshToken.create({
       data: {
         codigo,
         userId: id,
       },
     });
+    console.log(item);
   }
 }

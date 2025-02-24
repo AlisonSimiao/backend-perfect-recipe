@@ -17,10 +17,10 @@ model User {
   id                 String         @id() @default(auto()) @map("_id") @db.ObjectId
   name               String?
   nickname           String?
-  email              String?        @unique
-  password           String?
-  requiresPassChange Boolean?       @default(false)
-  suspended          Boolean?       @default(false)
+  email              String         @unique
+  password           String
+  requiresPassChange Boolean        @default(false)
+  suspended          Boolean        @default(false)
   Image              Image?         @relation(fields: [imageId], references: [id])
   imageId            String?        @db.ObjectId
   refreshToken       RefreshToken[]
@@ -33,7 +33,7 @@ model RefreshToken {
   id     String  @id @default(auto()) @map("_id") @db.ObjectId
   codigo String? // Permite valores nulos
   User   User?   @relation(fields: [userId], references: [id])
-  userId String? @db.ObjectId
+  userId String? @db.ObjectId @unique
 
   @@map("refresh_token")
 }
@@ -42,7 +42,7 @@ model RecoveyCode {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   codigo    String? // Permite valores nulos
   User      User?    @relation(fields: [userId], references: [id])
-  userId    String  @db.ObjectId @unique
+  userId    String   @unique @db.ObjectId
   createdAt DateTime @default(now())
   expireIn  DateTime
 
