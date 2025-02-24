@@ -8,9 +8,10 @@ interface InputProps extends TextInputProps {
   placeholder: string;
   secureTextEntry?: boolean;
   icon?: boolean;
+
 }
 
-export default function Input({ placeholder, icon = false, ...rest }: InputProps) {
+export default function Input({ placeholder, icon = false,  ...rest }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -18,12 +19,14 @@ export default function Input({ placeholder, icon = false, ...rest }: InputProps
       <TextInput
         placeholder={placeholder}
         secureTextEntry={!showPassword}
-        style={{ flex: 1 }}
+        style={{ flex: 1, backgroundColor: '#F3F5F7' }}
         {...rest}
       />
       {icon && (
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
           <MaterialIcons name={showPassword ? "visibility" : "visibility-off"} size={24} color="black" />
+        
+        
         </TouchableOpacity>
       )}
     </View>

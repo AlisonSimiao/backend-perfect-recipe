@@ -7,8 +7,8 @@ export const theme = {
     btnTextColor: '#ffffff',
     btnTextColorBlack: '#000000',
     iconColor: '#66324B',
-
     cardBackground: '#f3f5f7',
+    cardTextColor: '#66324B',
   },
   fontsRoboto: {
     Regular: 'Roboto_400Regular',

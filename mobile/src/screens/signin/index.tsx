@@ -1,4 +1,4 @@
-import { ImageBackground, Keyboard, KeyboardAvoidingView, Pressable, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, ImageBackground, Keyboard, KeyboardAvoidingView, Pressable, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
 import Input from '../../components/Input';
@@ -11,8 +11,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 type FormData = {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 const schema = yup.object().shape({
@@ -29,7 +29,13 @@ export default function SignInScreen() {
       password: '',
     },
   });
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data: FormData) => {
+    if (data.email === 'admin@admin.com' && data.password === '123456') {
+      navigation.navigate('Home' as never);
+    } else {
+      Alert.alert('Email ou senha invalidos');
+    }
+  }
 
   const navigation = useNavigation();
   return (

@@ -1,23 +1,24 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialIcons, AntDesign, } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import styles from './styles';
 import { useEffect, useState } from 'react';
 import { ERoutes } from '../../router/MainStacks';
-import { NavigationRoot } from '../../utils';
+
 
 
 type HeaderProps = {
-  title: string;
-
+  title?: string;
+  slogan?: string;
 }
 type Theme = {
   color: string;
   IconBack: any;
   size: number;
   iconAction?: any;
-
+  slogan?: string;
+  sloganColor?: string;
 }
 
 enum EStatus {
@@ -25,7 +26,8 @@ enum EStatus {
 
 }
 
-export default function Header({ title }: HeaderProps) {
+export default function Header({ title, slogan }: HeaderProps) {
+  const [notification, setNotification] = useState(10);
   const navigation = useNavigation();
   const route = useRoute();
   const [theme, setTheme] = useState<Theme>({
@@ -65,6 +67,16 @@ export default function Header({ title }: HeaderProps) {
           iconAction: () => <AntDesign name='plus' size={theme?.size} color='#66324B' />
         })
         break;
+      case ERoutes.Home:
+        setTheme({
+          color: '#66324B',
+          sloganColor: '#66324B',
+          IconBack: () => <MaterialIcons name='menu' size={33} color='#66324B' />,
+          size: 47,
+          slogan: 'KiSorvetes',
+          iconAction: () => <Image source={require('../../assets/img/business 1.png')} style={styles.iconAction} />
+        })
+        break;
     }
   }, [route.name])
 
@@ -84,7 +96,11 @@ export default function Header({ title }: HeaderProps) {
       {
         theme?.iconAction && (
           <TouchableOpacity onPress={() => { }}>
-            <theme.iconAction />
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+              <Text style={{ color: '#ff0000', fontSize: 18, fontWeight: 'bold' }}>kiSorvetes</Text>
+              <theme.iconAction />
+            </View>
+
           </TouchableOpacity>
         )
 

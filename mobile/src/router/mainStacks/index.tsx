@@ -5,10 +5,11 @@ import IntroScreen from '../../screens/Intro';
 import SignInScreen from '../../screens/SignIn';
 import CreateAccountsScreen from '../../screens/CreateAccounts';
 import ForgotPasswordScreen from '../../screens/Forgot-Password';
-import HomeScreen from '../../screens/AuthScreens/ReceitaScreen';
+import HomeScreen from '../../screens/AuthScreens/Home';
 import ProductScreen from '../../screens/AuthScreens/Product';
 import CodeOtpScreen from '../../screens/Code-Otp';
 import ReceitaScreen from '../../screens/AuthScreens/ReceitaScreen';
+
 
 
 export enum ERoutes {
@@ -19,6 +20,7 @@ export enum ERoutes {
   ReceitaScreen = 'ReceitaScreen',
   Product = 'Product',
   CodeOtp = 'CodeOtp',
+  Home = 'Home',
 }
 
 const Stack = createNativeStackNavigator();
@@ -26,16 +28,17 @@ const Stack = createNativeStackNavigator();
 export function MainStacks() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {/* Public Routes */}
       <Stack.Screen name={ERoutes.Intro} component={IntroScreen} />
       <Stack.Screen name={ERoutes.SignIn} component={SignInScreen} />
       <Stack.Screen name={ERoutes.CreateAccounts} component={CreateAccountsScreen} />
       <Stack.Screen name={ERoutes.ForgotPassword} component={ForgotPasswordScreen} />
       <Stack.Screen name={ERoutes.CodeOtp} component={CodeOtpScreen} />
-
+      <Stack.Screen name={ERoutes.Home} component={HomeScreen} />
       <Stack.Screen name={ERoutes.Product} component={ProductScreen} />
-
-
       <Stack.Screen name={ERoutes.ReceitaScreen} component={ReceitaScreen} />
+
+
 
     </Stack.Navigator>
   );

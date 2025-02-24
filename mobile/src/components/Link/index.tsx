@@ -4,13 +4,13 @@ import styles from './styles';
 interface LinkProps {
   title: string;
   onPress: () => void;
-
+  style?: StyleSheet;
 }
 
 
-export default function Link({ title, onPress }: LinkProps) {
+export default function Link({ title, onPress, style }: LinkProps) {
   return (
-    <Pressable onPress={onPress} style={{ marginTop: 10 }}>
+    <Pressable onPress={onPress}>
       <Text style={styles.forgotPassword}>{title}</Text>
     </Pressable>
   );

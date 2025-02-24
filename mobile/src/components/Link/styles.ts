@@ -8,6 +8,15 @@ const styles = StyleSheet.create({
     fontFamily: theme.fontsRaleway.Bold,
     textAlign: 'left',
   },
+  link: {
+    marginTop: 10,
+  },
+  linkText: {
+    color: theme.colors.btnBackground,
+    fontSize: 20,
+    fontFamily: theme.fontsRaleway.Bold,
+    textAlign: 'left',
+  }
 });
 
 export default styles;

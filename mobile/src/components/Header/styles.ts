@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     padding: 25,
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 30,
     gap: 10,
   },
   headerTitle: {
@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: theme.fontsRoboto.Bold,
   },
+  iconAction: {
+    width: 31,
+    height: 29,
+  }
 });
 
 export default styles; 
