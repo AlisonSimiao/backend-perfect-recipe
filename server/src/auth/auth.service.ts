@@ -1,6 +1,8 @@
 import {
   ConflictException,
+  ForbiddenException,
   Injectable,
+  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
@@ -9,13 +11,42 @@ import { Auth } from './entities/auth.entity';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { TokenService } from 'src/token/token.service';
 import { CryptoService } from 'src/crypto/crypto.service';
+import { RecoveryDto } from './dto/repovery.dto';
+import { EmailService } from 'src/email/email.service';
+import { add, isAfter } from 'date-fns';
+import { VerifyRecoveryCodeDto } from './dto/verify-recovery-code.dto';
+import { ChangePasswordDto } from './dto/change-password.dto';
 
 @Injectable()
 export class AuthService {
+  async changePassword(
+    body: ChangePasswordDto,
+    codigo?: string | null,
+  ): Promise<void> {
+    if (!codigo) throw new ForbiddenException('acesso nao autorizado');
+
+    const user = await this.prismaService.recoveyCode.findFirst({
+      where: { codigo },
+    });
+
+    if (!user || isAfter(new Date(), user.expireIn))
+      throw new UnauthorizedException('codigo expirado');
+
+    await this.prismaService.user.update({
+      where: {
+        id: user.userId,
+      },
+      data: {
+        password: body.password,
+      },
+    });
+    return;
+  }
   constructor(
     private prismaService: PrismaService,
     private tokenService: TokenService,
     private crypto: CryptoService,
+    private emailService: EmailService,
   ) {}
 
   async refreshToken(refreshToken: string | null): Promise<Auth> {
@@ -63,7 +94,75 @@ export class AuthService {
     return auth;
   }
 
-  async login(loginAuthDto: LoginAuthDto): Promise<any> {}
+  async verifyRecoveryCode(body: VerifyRecoveryCodeDto) {
+    const user = await this.prismaService.recoveyCode.findFirst({
+      where: {
+        User: {
+          email: body.email,
+        },
+      },
+      select: {
+        codigo: true,
+        expireIn: true,
+      },
+    });
+
+    if (!user || this.crypto.compare(body.codigo, user.codigo || ''))
+      throw new UnauthorizedException(`codigo invalido`);
+
+    if (isAfter(new Date(), user.expireIn))
+      throw new UnauthorizedException('codigo expirado');
+
+    return {
+      recoveryToken: user.codigo,
+    };
+  }
+
+  async sendRecoveryCode(body: RecoveryDto): Promise<any> {
+    const user = await this.prismaService.user.findFirst({
+      where: {
+        email: body.email,
+      },
+      select: {
+        id: true,
+        email: true,
+      },
+    });
+
+    if (!user)
+      throw new NotFoundException(`email '${body.email}' nao cadastrado`);
+
+    const minutes = +(process.env.CODE_EXPIRE_MINUTES || 10);
+
+    const code = this.tokenService.generate(4);
+
+    await this.emailService.sendEmail(body.email, 'sendCode', {
+      code,
+      expireIn: minutes,
+      subject: '[Mensagem automatica] - recuperação de senha',
+    });
+
+    await this.prismaService.recoveyCode.upsert({
+      where: {
+        userId: user.id,
+      },
+      create: {
+        codigo: code,
+        expireIn: add(new Date(), { minutes }),
+      },
+      update: {
+        codigo: this.crypto.create(code),
+      },
+    });
+
+    return {
+      message: 'codigo enviado para o email com sucesso',
+    };
+  }
+
+  async login(loginAuthDto: LoginAuthDto): Promise<Auth> {
+    return new Auth()
+  }
 
   async create(createAuthDto: CreateAuthDto): Promise<void> {
     const user = await this.prismaService.user.findUnique({
