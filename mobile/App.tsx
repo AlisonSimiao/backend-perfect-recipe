@@ -1,14 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Raleway_700Bold } from '@expo-google-fonts/raleway';
 import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_900Black } from '@expo-google-fonts/roboto';
 import { theme } from './src/global/theme';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from './src/components/splashscreen';
-import Home from './src/screens/AuthScreens/ReceitaScreen';
-import Signin from './src/screens/Intro';
-import SignInScreen from './src/screens/Intro';
-import Signin1 from './src/screens/signin1';
 import Routes from './src/router';
 
 export default function App() {

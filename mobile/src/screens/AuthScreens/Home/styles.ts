@@ -5,26 +5,31 @@ import { theme } from '../../../global/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
+    backgroundColor: '#fff',
   },
   searchArea: {
-    
-    backgroundColor: '#F3F5F7',
-    borderRadius: 10,
-    marginHorizontal: 20,
+    paddingHorizontal: 20,
+    marginBottom: 20,
   },
   searchAreaInput: {
-    width: '90%',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    backgroundColor: '#F5F5F5',
     borderRadius: 10,
-    padding: 10,
-    
+    paddingHorizontal: 15,
   },
   scrollView: {
-   
-    
+    paddingHorizontal: 20,
+  },
+  sectionContainer: {
+    marginBottom: 25,
+  },
+  listContainer: {
+    marginTop: 10,
+  },
+  categoriesContainer: {
+    marginTop: 10,
+    paddingBottom: 20,
   },
   titleArea: {
     flexDirection: 'row',

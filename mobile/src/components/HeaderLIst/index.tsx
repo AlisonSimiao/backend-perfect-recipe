@@ -3,7 +3,7 @@ import { styles } from './styles';
 
 interface HeaderLIstProps {
   title: string;
-  link: string;
+  link?: string;
 }
 
 export default function HeaderLIst({ title, link }: HeaderLIstProps) {
