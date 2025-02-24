@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import { Raleway_700Bold } from '@expo-google-fonts/raleway';
-import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_900Black } from '@expo-google-fonts/roboto';
+import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_900Black, Roboto_500Medium } from '@expo-google-fonts/roboto';
 import { theme } from './src/global/theme';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from './src/components/splashscreen';
@@ -14,6 +14,7 @@ export default function App() {
     Roboto_400Regular,
     Roboto_700Bold,
     Roboto_900Black,
+    Roboto_500Medium,
   });
 
   useEffect(() => {

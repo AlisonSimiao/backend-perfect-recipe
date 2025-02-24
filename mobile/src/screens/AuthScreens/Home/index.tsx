@@ -1,13 +1,12 @@
 import { FlatList, ScrollView, View } from 'react-native';
 import { styles } from './styles';
-import { MaterialIcons } from '@expo/vector-icons';
 import Header from '../../../components/Header';
 import Input from '../../../components/Input';
 import LIstitem from '../../../components/LIstitem';
 import HeaderLIst from '../../../components/HeaderLIst';
 import CategoriesItem from '../../../components/CategoriesItem';
 import { recipes } from '../../../mocks/Recipes';
-import { categoriesItem } from '../../../mocks/CategoriesItem';
+
 import icons from '../../../assets/icon';
 
 export default function Home() {
@@ -16,31 +15,37 @@ export default function Home() {
     id: 1,
     name: 'Hamburguer',
     image: icons.hamburguer,
+    description: 'Hamburguer de carne bovina e suína',
   },
   {
     id:2,
     name: 'Carne',
     image: icons.carne,
+    description: 'Carne bovina e suína',
   },
   {
     id: 3,
       name: 'Sorvetes',
     image: icons.sorvete,
+    description: 'Sorvetes e milkshakes',
   },
   {
     id: 4,
     name: 'Milkshake',
     image: icons.milkshake,
+    description: 'Sorvetes e milkshakes',
   },
   {
     id: 5,
     name: 'bolos',
     image: icons.bolo,
+    description: 'Bolos doces e salgados',
   },
   {
     id: 6,
     name: 'Bebidas',
     image: icons.bebidas,
+    description: 'Bebidas geladas e quentes',
   }
 ]
   

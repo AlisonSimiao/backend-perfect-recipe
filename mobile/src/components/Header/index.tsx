@@ -1,11 +1,10 @@
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { MaterialIcons, AntDesign, } from '@expo/vector-icons';
+import { MaterialIcons, AntDesign, Feather, Ionicons} from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import styles from './styles';
 import { useEffect, useState } from 'react';
 import { ERoutes } from '../../router/MainStacks';
-
 
 
 type HeaderProps = {
@@ -27,7 +26,7 @@ enum EStatus {
 }
 
 export default function Header({ title, slogan }: HeaderProps) {
-  const [notification, setNotification] = useState(10);
+  const [notification, setNotification] = useState(0);
   const navigation = useNavigation();
   const route = useRoute();
   const [theme, setTheme] = useState<Theme>({
@@ -64,7 +63,7 @@ export default function Header({ title, slogan }: HeaderProps) {
           color: '#66324B',
           IconBack: () => <AntDesign name='arrowleft' size={theme?.size} color='#66324B' />,
           size: 47,
-          iconAction: () => <AntDesign name='plus' size={theme?.size} color='#66324B' />
+          iconAction: () => <Feather name='more-vertical' size={theme?.size} color='#66324B' />
         })
         break;
       case ERoutes.Home:
@@ -75,6 +74,32 @@ export default function Header({ title, slogan }: HeaderProps) {
           size: 47,
           slogan: route.name === ERoutes.Home ? 'KiSorvetes' : null,
           iconAction: () => <Image source={require('../../assets/img/business 1.png')} style={styles.iconAction} />
+        })
+        break;
+      case ERoutes.Prepare:
+        setTheme({
+          color: '#66324B',
+          IconBack: () => <AntDesign name='arrowleft' size={theme?.size} color='#66324B' />,
+          size: 47,
+          iconAction: () => (
+            <View>
+              {
+                notification ? (
+                  <View style={{  }}>
+                    <Ionicons name='refresh' size={47} color='#66324B' />
+                    <View style={styles.notificationArea}>
+                      <Text style={styles.notificationText}>{notification}</Text>
+                    </View>
+                  </View>
+                ) : (
+                  <View>
+                    <Ionicons name='refresh' size={47} color='#66324B' />
+                  </View>
+                )
+              }
+              
+            </View>
+          )
         })
         break;
     }

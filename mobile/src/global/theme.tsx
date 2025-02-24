@@ -14,6 +14,7 @@ export const theme = {
     Regular: 'Roboto_400Regular',
     Bold: 'Roboto_700Bold',
     Black: 'Roboto_900Black',
+    medium: 'Roboto_500Medium',
   },
   fontsRaleway: {
     Regular: 'Raleway_400Regular',
