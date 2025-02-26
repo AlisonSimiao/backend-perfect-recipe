@@ -171,7 +171,12 @@ export class AuthService {
     });
 
     if (!user || !this.crypto.compare(loginAuthDto.password, user.password))
-      throw new UnauthorizedException(`email ou senha invalido`);
+      throw new UnauthorizedException('email ou senha invalido');
+
+    if (user.suspended)
+      throw new UnauthorizedException(
+        'Sua conta está atualmente suspensa. Por favor, entre em contato com o administrador do sistema para obter assistência.',
+      );
 
     const auth = new Auth();
     auth.user = user as any;
@@ -207,9 +212,22 @@ export class AuthService {
     createAuthDto.password = this.crypto.create(createAuthDto.password);
 
     const { id } = await this.prismaService.user.create({
-      data: createAuthDto,
+      data: {
+        email: createAuthDto.email,
+        password: createAuthDto.password,
+      },
       select: {
         id: true,
+      },
+    });
+
+    await this.prismaService.business.create({
+      data: {
+        name: 'Meu negócio',
+        main: true,
+        User: {
+          connect: { id },
+        },
       },
     });
 
