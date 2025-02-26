@@ -3,7 +3,7 @@ import {
 
 } from "@react-navigation/native";
 
-import { MainStacks } from "./MainStacks";
+import { MainStacks } from "./mainStacks";
 
 
 export default function Routes() {
