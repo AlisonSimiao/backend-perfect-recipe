@@ -1,172 +1,149 @@
-import { Injectable } from '@nestjs/common';
-import { UnprocessableEntityError } from '../../erros';
-import { IEmailBodyConfirm, IEmailService } from '../../typing/email';
-import nodemailer, { Transporter } from 'nodemailer';
-
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
+import { createTransport, Transporter } from 'nodemailer';
 @Injectable()
-export class EmailService {
+export class EmailService implements OnModuleInit {
   private mailer: Transporter;
-  private htmlEmail: Record<'confirm', (...args: any[]) => string>;
+  private readonly logger = new Logger(EmailService.name);
 
-  constructor() {
-    this.mailer = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE, // Use o serviço de e-mail (Gmail, Outlook, etc.)
-      auth: {
-        user: process.env.EMAIL_USER, // Seu endereço de e-mail
-        pass: process.env.EMAIL_PASS, // Sua senha ou app key (se 2FA estiver habilitado)
-      },
-    });
-    this.htmlEmail = {
-      confirm: (nome: string, linkConfirm: string): string => {
-        return `
-                <!DOCTYPE html>
-                <html lang="en">
-    
-                <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Email Confirmation</title>
-                <style>
-                    /* Reset */
-                    body {
-                    margin: 0;
-                    padding: 0;
-                    font-family: Arial, sans-serif;
-                    background-color: #f4f4f4;
-                    }
-    
-                    table {
-                    border-spacing: 0;
-                    width: 100%;
-                    }
-    
-                    td {
-                    padding: 0;
-                    }
-    
-                    /* Container */
-                    .email-container {
-                    max-width: 600px;
-                    margin: 0 auto;
-                    background-color: #ffffff;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    }
-    
-                    /* Header */
-                    .email-header {
-                    background-color: #4CAF50;
-                    color: #ffffff;
-                    padding: 20px;
-                    text-align: center;
-                    border-top-left-radius: 8px;
-                    border-top-right-radius: 8px;
-                    }
-    
-                    .email-header h1 {
-                    margin: 0;
-                    font-size: 24px;
-                    }
-    
-                    /* Body */
-                    .email-body {
-                    padding: 20px;
-                    color: #333333;
-                    font-size: 16px;
-                    line-height: 1.5;
-                    }
-    
-                    .email-body p {
-                    margin: 0 0 15px;
-                    }
-    
-                    .email-body a {
-                    display: inline-block;
-                    margin-top: 20px;
-                    background-color: #4CAF50;
-                    color: #ffffff;
-                    text-decoration: none;
-                    padding: 12px 20px;
-                    border-radius: 4px;
-                    font-weight: bold;
-                    }
-    
-                    .email-body a:hover {
-                    background-color: #45a049;
-                    }
-    
-                    /* Footer */
-                    .email-footer {
-                    text-align: center;
-                    padding: 15px;
-                    font-size: 12px;
-                    color: #777777;
-                    background-color: #f9f9f9;
-                    border-bottom-left-radius: 8px;
-                    border-bottom-right-radius: 8px;
-                    }
-    
-                    .email-footer a {
-                    color: #4CAF50;
-                    text-decoration: none;
-                    }
-                </style>
-                </head>
-    
-                <body>
-                <table role="presentation" class="email-container">
-                    <tr>
-                    <td class="email-header">
-                        <h1>Confirme seu Email</h1>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td class="email-body">
-                        <p>Olá, ${nome}</p>
-                        <p>Obrigado por se cadastrar! Clique no botão abaixo para confirmar seu email.</p>
-                        <p>
-                        <a href="${linkConfirm}" target="_blank">Confirmar Email</a>
-                        </p>
-                        <p>Se você não solicitou este email, pode ignorá-lo com segurança.</p>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td class="email-footer">
-                        <p>© ${new Date().getFullYear()} ${process.env.PROJECT_NAME}. Todos os direitos reservados.</p>
-                    </td>
-                    </tr>
-                </table>
-                </body>
-    
-                </html>
-                `;
-      },
-    };
+  onModuleInit() {
+    try {
+      const isDevelopment = process.env.NODE_ENV === 'development';
+
+      // Validate required environment variables
+      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        throw new Error('Email user or password is not configured.');
+      }
+
+      if (
+        isDevelopment &&
+        (!process.env.EMAIL_HOST || !process.env.EMAIL_PORT)
+      ) {
+        throw new Error(
+          'Email host or port is not configured for development.',
+        );
+      }
+
+      if (!isDevelopment && !process.env.EMAIL_SERVICE) {
+        throw new Error('Email service is not configured for production.');
+      }
+
+      // Create the mailer transport
+      this.mailer = createTransport({
+        ...(isDevelopment
+          ? {
+              host: process.env.EMAIL_HOST,
+              port: +(process.env.EMAIL_PORT || 0),
+            }
+          : { service: process.env.EMAIL_SERVICE }),
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      this.logger.log('Mailer transport initialized successfully.');
+    } catch (error) {
+      this.logger.error(
+        'Failed to initialize mailer transport:',
+        error.message,
+      );
+      throw error; // Re-throw the error to prevent the application from starting
+    }
   }
 
-  async confirmEmail(to: string, body: IEmailBodyConfirm): Promise<any> {
-    const link = process.env.HOST?.concat('/confirmEmail', '?email=' + to);
-    const emailParams = {
-      from: process.env.EMAIL_USER, // Remetente
-      to, // Destinatário
-      subject: '[Mensagem automatica] - Confirmação de email', // Assunto
-      html: this.htmlEmail.confirm(body.nome, link),
-    };
-
-    return this.mailer.sendMail(emailParams).catch((err) => {
-      console.log(err);
-      throw new UnprocessableEntityError(['Erro ao enviar email']);
-    });
-  }
-
-  async recoveryPassword(to: string, body: Record<string, any>): Promise<void> {
-    return;
+  private sendCode({
+    code,
+    expireIn,
+  }: {
+    code: string;
+    expireIn: number;
+  }): string {
+    const html = `
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Código de Verificação</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+            }
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #ffffff;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .header {
+              text-align: center;
+              padding-bottom: 20px;
+            }
+            .header h1 {
+              color: #333333;
+              font-size: 24px;
+              margin: 0;
+            }
+            .content {
+              color: #555555;
+              font-size: 16px;
+              line-height: 1.6;
+            }
+            .code {
+              display: inline-block;
+              margin: 20px 0;
+              padding: 12px 24px;
+              background-color: #007bff;
+              color: #ffffff;
+              font-size: 24px;
+              font-weight: bold;
+              border-radius: 4px;
+            }
+            .footer {
+              text-align: center;
+              margin-top: 20px;
+              color: #999999;
+              font-size: 14px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Código de Verificação</h1>
+            </div>
+            <div class="content">
+              <p>Olá,</p>
+              <p>Você solicitou um código de verificação para redefinir sua senha. Use o código abaixo no aplicativo:</p>
+              <div class="code">${code}</div>
+              <p>Se você não solicitou este código, ignore este e-mail ou entre em contato conosco para garantir a segurança da sua conta.</p>
+              <p>Atenciosamente,<br>Equipe de Suporte</p>
+            </div>
+            <div class="footer">
+              <p>Este código é válido por ${expireIn} minutos.</p>
+            </div>
+          </div>
+        </body>
+        </html>
+    `;
+    return html;
   }
 
   async sendEmail(
-    email: string,
-    body: Record<'message', string>,
-  ): Promise<void> {
-    console.log(`Sending email to ${email}: ${body.message}`);
+    to: string,
+    tipoEmail: 'sendCode',
+    body: any, // Extrai o tipo do primeiro parâmetro da função
+  ): Promise<any> {
+    return this.mailer.sendMail({
+      from: process.env.EMAIL_USER,
+      subject: body.subject || ' ',
+      to,
+      html: this[tipoEmail](body),
+    });
   }
 }

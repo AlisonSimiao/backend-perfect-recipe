@@ -17,13 +17,15 @@ model User {
   id                 String         @id() @default(auto()) @map("_id") @db.ObjectId
   name               String?
   nickname           String?
-  email              String?        @unique
-  password           String?
-  requiresPassChange Boolean?       @default(false)
-  suspended          Boolean?       @default(false)
+  email              String         @unique
+  password           String
+  requiresPassChange Boolean        @default(false)
+  suspended          Boolean        @default(false)
   Image              Image?         @relation(fields: [imageId], references: [id])
   imageId            String?        @db.ObjectId
   refreshToken       RefreshToken[]
+  RecoveyCode        RecoveyCode[]
+  Business           Business[]
 
   @@map("users")
 }
@@ -31,10 +33,21 @@ model User {
 model RefreshToken {
   id     String  @id @default(auto()) @map("_id") @db.ObjectId
   codigo String? // Permite valores nulos
-  User   User?    @relation(fields: [userId], references: [id])
-  userId String?  @db.ObjectId
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String? @unique @db.ObjectId
 
   @@map("refresh_token")
+}
+
+model RecoveyCode {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  codigo    String? // Permite valores nulos
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String   @unique @db.ObjectId
+  createdAt DateTime @default(now())
+  expireIn  DateTime
+
+  @@map("recovery_token")
 }
 
 model ValidationCode {
@@ -103,10 +116,13 @@ model Recipe {
 model Business {
   id              String   @id() @default(auto()) @map("_id") @db.ObjectId
   name            String
-  image           Image    @relation(fields: [imageId], references: [id])
+  image           Image?   @relation(fields: [imageId], references: [id])
   favoriteRecipes Recipe[]
-  description     String
-  Nicho           Nicho    @relation(fields: [nichoId], references: [id])
-  imageId         String   @db.ObjectId
-  nichoId         String   @db.ObjectId
+  main            Boolean  @default(false)
+  description     String?
+  User            User     @relation(fields: [userId], references: [id])
+  Nicho           Nicho?   @relation(fields: [nichoId], references: [id])
+  imageId         String?  @db.ObjectId
+  nichoId         String?  @db.ObjectId
+  userId          String   @db.ObjectId
 }

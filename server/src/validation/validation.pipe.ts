@@ -5,6 +5,7 @@ import {
   Injectable,
   ArgumentMetadata,
   UnprocessableEntityException,
+  InternalServerErrorException,
 } from '@nestjs/common';
 import { validate, ValidationError } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
@@ -12,17 +13,27 @@ import { plainToInstance } from 'class-transformer';
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
   async transform(value: any, { metatype }: ArgumentMetadata) {
-    if (!metatype || !this.toValidate(metatype)) {
+    try {
+      if (!value) {
+        throw new UnprocessableEntityException('Nenhum dado fornecido');
+      }
+
+      if (!metatype || !this.toValidate(metatype)) {
+        return value;
+      }
+
+      const object = plainToInstance(metatype, value);
+      const errors = await validate(object);
+      if (errors.length > 0) {
+        throw new UnprocessableEntityException(this.buildResponse(errors));
+      }
+
       return value;
-    }
+    } catch (err) {
+      if (err instanceof UnprocessableEntityException) throw err;
 
-    const object = plainToInstance(metatype, value);
-    const errors = await validate(object);
-    if (errors.length > 0) {
-      throw new UnprocessableEntityException(this.buildResponse(errors));
+      throw new InternalServerErrorException();
     }
-
-    return value;
   }
 
   private buildResponse(errors: ValidationError[]) {
