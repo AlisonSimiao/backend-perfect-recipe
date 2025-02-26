@@ -2,49 +2,53 @@ import axios, { type AxiosError, type AxiosInstance, type AxiosResponse } from '
 import type { IErrorResponse } from '../types/apiServicesType';
 
 
+
+
 class apiServices {
   private api: AxiosInstance;
   static instance: apiServices;
 
   constructor() {
     this.api = axios.create({
-      baseURL: 'http://localhost:3000',
+      baseURL: 'http://192.168.100.73:3000',
     })
     console.log('apiServices constructor')
   }
 
-  async login(email: string, password: string) {
-    try {
-      const response = await this.api.post('/login', { email, password });
+  async login<T>(email: string, password: string): Promise<T | IErrorResponse> {
+   
+      const response = await this.api.post('/auth/login', { email, password })
+      .then(this.getResponse)
+      .catch(this.getError);
+
       return response.data;
-    } catch (error) {
-      throw error;
-    }
+   
   }
+
+  async SignUp<T>(email: string, password: string): Promise<T | IErrorResponse> {
+    
+     return this.api.post('/auth/signup', { email, password })
+      .then(this.getResponse<T>)
+      .catch(this.getError);
+  }
+
 
   private async getResponse<T>(response: AxiosResponse<T>) {
     return response.data;
   }
 
   private async getError(error: AxiosError<any>): Promise<IErrorResponse> {
-    if (error.status === 401) {
-
-      console.error(error.status)
-
-      return {
-        message: 'Credenciais inválidas',
-        status: error.status,
-      };
-    }
+    console.log(error)
     if (error.status === 422) {
 
       return {
-        message: error.response?.data?.message,
+        message: error.response?.data,
         status: error.status,
       };
 
     }
-    if (error.status === 404) {
+    if ([404, 409, 401].includes(error.status)) {
+      
       return {
         message: error.response?.data?.message,
         status: error.status,
@@ -61,6 +65,8 @@ class apiServices {
     }
     return apiServices.instance;
   }
+
+  
 
 }
 

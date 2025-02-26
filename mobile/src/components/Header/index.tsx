@@ -4,7 +4,7 @@ import { MaterialIcons, AntDesign, Feather, Ionicons} from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import styles from './styles';
 import { useEffect, useState } from 'react';
-import { ERoutes } from '../../router/MainStacks';
+import { ERoutes } from '../../router/mainStacks';
 
 
 type HeaderProps = {

@@ -10,6 +10,7 @@
       flexDirection: 'row',
       alignItems: 'center',
       gap: 10,
+     
       
     },
     headerTitle: {

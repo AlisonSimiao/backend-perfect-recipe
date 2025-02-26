@@ -1,4 +1,4 @@
-import { ImageBackground, Keyboard, KeyboardAvoidingView, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, ImageBackground, Keyboard, KeyboardAvoidingView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import styles from './styles';
 import Input from '../../components/Input';
 import { useNavigation } from '@react-navigation/native';
@@ -7,6 +7,9 @@ import Link from '../../components/Link';
 import Header from '../../components/Header';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import apiServices from '../../services/api';
+
 import * as yup from 'yup';
 
 type SignUpData = {
@@ -32,8 +35,33 @@ export default function CreateAccountsScreen() {
     },
   });
 
-  const onSubmit = (data: SignUpData) => {
-    console.log(data);
+  const onSubmit = async(data: SignUpData) => {
+    console.log(data)
+    if(data.password !== data.confirmPassword) {
+      Alert.alert('As senhas nao conferem')
+      return;
+    }
+   
+   
+    const SignUp = await apiServices.SignUp<void>(data.email, data.password);
+    console.log(SignUp)
+    if(SignUp) {
+      if([404, 409, 401].includes(SignUp.status)) {
+        Alert.alert(SignUp.message as string)
+        return;
+      }
+      return;
+    }
+
+
+    //TODO: Adicionar Toast de usuario criado com sucesso
+    Alert.alert('Usuario criado com sucesso')
+    navigation.navigate('SignIn' as never)
+    
+
+
+
+   
   }
 
   const navigation = useNavigation();

@@ -1,3 +1,6 @@
+import 'react-native-gesture-handler';
+
+
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import { Raleway_700Bold } from '@expo-google-fonts/raleway';
@@ -6,6 +9,7 @@ import { theme } from './src/global/theme';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from './src/components/splashscreen';
 import Routes from './src/router';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,10 +36,12 @@ export default function App() {
 
 
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
     <View style={{ flex: 1, backgroundColor: theme.colors.primary }}>
       <Routes />
       <StatusBar hidden />
     </View>
+    </GestureHandlerRootView>
   );
 }
 

@@ -25,8 +25,8 @@ export default function SignInScreen() {
   const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues: {
-      email: 'admin@admin.com',
-      password: '123456',
+      email: '',
+      password: '',
     },
   });
   const onSubmit = (data: FormData) => {
