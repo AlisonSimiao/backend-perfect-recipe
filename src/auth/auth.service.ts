@@ -147,11 +147,13 @@ export class AuthService {
         userId: user.id,
       },
       create: {
+        userId: user.id,
         codigo: code,
         expireIn: add(new Date(), { minutes }),
       },
       update: {
         codigo: this.crypto.create(code),
+        expireIn: add(new Date(), { minutes }),
       },
     });
 
