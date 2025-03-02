@@ -61,7 +61,7 @@ export class AuthService {
         id: user.userId,
       },
       data: {
-        password: body.password,
+        password: this.crypto.create(body.password),
       },
       select: {},
     });
