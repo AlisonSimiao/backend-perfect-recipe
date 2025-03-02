@@ -11,7 +11,7 @@ import { Auth } from './entities/auth.entity';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { TokenService } from 'src/token/token.service';
 import { CryptoService } from 'src/crypto/crypto.service';
-import { RecoveryDto } from './dto/repovery.dto';
+import { RecoveryDto } from './dto/recovery.dto';
 import { EmailService } from 'src/email/email.service';
 import { add, isAfter } from 'date-fns';
 import { VerifyRecoveryCodeDto } from './dto/verify-recovery-code.dto';
@@ -19,18 +19,42 @@ import { ChangePasswordDto } from './dto/change-password.dto';
 
 @Injectable()
 export class AuthService {
+  constructor(
+    private prismaService: PrismaService,
+    private tokenService: TokenService,
+    private crypto: CryptoService,
+    private emailService: EmailService,
+  ) {}
+
   async changePassword(
     body: ChangePasswordDto,
     codigo?: string | null,
   ): Promise<void> {
-    if (!codigo) throw new ForbiddenException('acesso nao autorizado');
+    if (!codigo)
+      throw new ForbiddenException({
+        message: 'acesso não autorizado.',
+        details: 'codigo de recuperacao não enviado no header.',
+      });
 
     const user = await this.prismaService.recoveyCode.findFirst({
       where: { codigo },
+      select: {
+        userId: true,
+        expireIn: true,
+      },
     });
 
-    if (!user || isAfter(new Date(), user.expireIn))
-      throw new UnauthorizedException('codigo expirado');
+    if (!user)
+      throw new ForbiddenException({
+        message: 'acesso não autorizado.',
+        details: 'codigo de recuperacao incorreto',
+      });
+
+    if (isAfter(new Date(), user.expireIn))
+      throw new UnauthorizedException({
+        message: 'acesso não autorizado.',
+        details: 'codigo de recuperacao esta expirado.',
+      });
 
     await this.prismaService.user.update({
       where: {
@@ -39,15 +63,11 @@ export class AuthService {
       data: {
         password: body.password,
       },
+      select: {},
     });
+
     return;
   }
-  constructor(
-    private prismaService: PrismaService,
-    private tokenService: TokenService,
-    private crypto: CryptoService,
-    private emailService: EmailService,
-  ) {}
 
   async refreshToken(refreshToken: string | null): Promise<Auth> {
     if (!refreshToken)

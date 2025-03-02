@@ -7,19 +7,22 @@ import {
   Req,
   HttpCode,
   Patch,
+  HttpStatus,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { LoginAuthDto } from './dto/login-auth.dto';
 import { Auth } from './entities/auth.entity';
-import { RecoveryDto } from './dto/repovery.dto';
+import { RecoveryDto } from './dto/recovery.dto';
 import { VerifyRecoveryCodeDto } from './dto/verify-recovery-code.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import {
   ApiBody,
   ApiConflictResponse,
   ApiCreatedResponse,
+  ApiForbiddenResponse,
   ApiHeader,
+  ApiNoContentResponse,
   ApiOperation,
   ApiResponse,
   ApiTags,
@@ -52,7 +55,7 @@ export class AuthController {
   }
 
   @Patch('/change-password')
-  @HttpCode(200)
+  @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOperation({ summary: 'muda senha de usuário' })
   @ApiHeader({
     required: true,
@@ -60,6 +63,25 @@ export class AuthController {
   })
   @ApiBody({
     type: ChangePasswordDto,
+  })
+  @ApiNoContentResponse({
+    description: 'senha mudada com success',
+  })
+  @ApiForbiddenResponse({
+    schema: {
+      type: 'object',
+      properties: {
+        message: {
+          type: 'string',
+          example: 'Acesso negado.',
+        },
+        details: {
+          type: 'string',
+          example:
+            'Adicione o token no header "X-Custom-Token" e tente novamente.',
+        },
+      },
+    },
   })
   changePassword(@Body() body: ChangePasswordDto, @Req() req: Request) {
     const codigo = req.headers['codigo'];
