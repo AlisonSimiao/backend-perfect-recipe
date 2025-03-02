@@ -16,7 +16,6 @@ export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) {}
 
   @Patch()
-  @apif
   @UseInterceptors(FileInterceptor('file'))
   update(
     @Req() req: Request,
