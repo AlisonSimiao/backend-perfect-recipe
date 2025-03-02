@@ -1,42 +1,28 @@
 import {
   Controller,
-  Get,
-  Post,
   Body,
   Patch,
-  Param,
-  Delete,
+  UseInterceptors,
+  UploadedFile,
+  Req,
 } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
-import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { Request } from 'express';
 
-@Controller('usuario')
+@Controller('usuarios')
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) {}
 
-  @Post()
-  create(@Body() createUsuarioDto: CreateUsuarioDto) {
-    return this.usuarioService.create(createUsuarioDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.usuarioService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usuarioService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
-    return this.usuarioService.update(+id, updateUsuarioDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usuarioService.remove(+id);
+  @Patch()
+  @apif
+  @UseInterceptors(FileInterceptor('file'))
+  update(
+    @Req() req: Request,
+    @Body() body: UpdateUsuarioDto,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    return this.usuarioService.update(req['idUser'], body, file);
   }
 }

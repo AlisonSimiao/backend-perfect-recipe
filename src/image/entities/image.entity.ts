@@ -15,7 +15,7 @@ export class Image {
 
   @ApiProperty({
     description: 'Dados binários do arquivo',
-    type: 'string', // No Swagger, use 'string' com formato 'binary'
+    type: 'string',
     format: 'binary',
   })
   data: Buffer;

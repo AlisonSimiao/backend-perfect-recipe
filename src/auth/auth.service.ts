@@ -107,7 +107,7 @@ export class AuthService {
       },
     });
 
-    if (!user || this.crypto.compare(body.codigo, user.codigo || ''))
+    if (!user || !this.crypto.compare(body.codigo, user.codigo || ''))
       throw new UnauthorizedException(`codigo invalido`);
 
     if (isAfter(new Date(), user.expireIn))

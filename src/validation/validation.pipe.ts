@@ -14,10 +14,6 @@ import { plainToInstance } from 'class-transformer';
 export class ValidationPipe implements PipeTransform<any> {
   async transform(value: any, { metatype }: ArgumentMetadata) {
     try {
-      if (!value) {
-        throw new UnprocessableEntityException('Nenhum dado fornecido');
-      }
-
       if (!metatype || !this.toValidate(metatype)) {
         return value;
       }

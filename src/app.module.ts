@@ -6,10 +6,11 @@ import { AuthModule } from './auth/auth.module';
 import { TokenService } from './token/token.service';
 import { CryptoService } from './crypto/crypto.service';
 import { ImageService } from './image/image.service';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
   imports: [UsuarioModule, AuthModule],
   controllers: [AppController],
-  providers: [AppService, TokenService, CryptoService, ImageService],
+  providers: [AppService, TokenService, CryptoService, PrismaService],
 })
 export class AppModule {}

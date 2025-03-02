@@ -59,7 +59,7 @@ model ValidationCode {
 
 model Image {
   id             String           @id() @default(auto()) @map("_id") @db.ObjectId
-  Name           String
+  name           String
   data           Bytes
   description    String
   User           User[]
