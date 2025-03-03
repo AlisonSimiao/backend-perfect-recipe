@@ -16,21 +16,18 @@ async function bootstrap() {
     .setDescription('')
     .setVersion('0.6')
     .addServer(`http://localhost:${process.env.PORT}`)
-    .addBearerAuth({
-      type: 'http',
-      scheme: 'Bearer',
-      in: 'header',
-    })
+    .addBearerAuth({ type: 'http', name: 'access-token', in: 'header' })
     .build();
 
   const options: SwaggerCustomOptions = {
     customSiteTitle: `Perfect recipe Rest API`,
     swaggerOptions: {
       docExpansion: 'none',
+      persistAuthorization: true,
     },
   };
 
-  const mainDocument = SwaggerModule.createDocument(app, config);
+  const mainDocument = SwaggerModule.createDocument(app, config, {});
 
   SwaggerModule.setup('docs', app, mainDocument, options);
 
