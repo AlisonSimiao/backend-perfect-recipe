@@ -63,7 +63,6 @@ export class AuthService {
       data: {
         password: this.crypto.create(body.password),
       },
-      select: {},
     });
 
     return;
