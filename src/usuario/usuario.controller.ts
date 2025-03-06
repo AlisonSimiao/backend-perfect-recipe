@@ -9,6 +9,8 @@ import {
   HttpCode,
   Query,
   UseGuards,
+  Post,
+  Param,
 } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
@@ -17,6 +19,8 @@ import { Request } from 'express';
 import { FilterUserDto } from './dto/filter-user.dto';
 import { handlePaginateQuery } from 'src/utils/fn';
 import { AdminGuard } from 'src/admin/admin.guard';
+import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
+import { ERoleUser } from '@prisma/client';
 
 @Controller('usuarios')
 export class UsuarioController {
@@ -24,6 +28,36 @@ export class UsuarioController {
 
   @Get()
   @HttpCode(200)
+  @ApiOperation({ summary: 'paginação usuario' })
+  @ApiResponse({
+    status: 200,
+    schema: {
+      type: 'object',
+      properties: {
+        dados: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              id: { type: 'string' },
+              suspended: { type: 'string' },
+              name: { type: 'string' },
+              role: { enum: [ERoleUser.ADMIN, ERoleUser.USER] },
+            },
+          },
+        },
+        totalPaginas: {
+          type: 'number',
+        },
+        pagina: {
+          type: 'number',
+        },
+        registros: {
+          type: 'number',
+        },
+      },
+    },
+  })
   @UseGuards(AdminGuard)
   async paginate(@Query() query: FilterUserDto) {
     const filters = handlePaginateQuery(query);
@@ -32,6 +66,7 @@ export class UsuarioController {
   }
 
   @Patch()
+  @ApiOperation({ summary: 'atualiza usuario' })
   @UseInterceptors(FileInterceptor('file'))
   update(
     @Req() req: Request,
@@ -39,5 +74,27 @@ export class UsuarioController {
     @UploadedFile() file: Express.Multer.File,
   ) {
     return this.usuarioService.update(req['idUser'], body, file);
+  }
+
+  @Patch('/reset-password/:email')
+  @HttpCode(200)
+  @ApiParam({
+    type: String,
+    name: 'email',
+  })
+  @ApiOperation({ summary: 'reseta senha para default' })
+  @UseGuards(AdminGuard)
+  resetsenha() {}
+
+  @Post('/suspend/:email')
+  @HttpCode(200)
+  @UseGuards(AdminGuard)
+  @ApiParam({
+    type: String,
+    name: 'email',
+  })
+  @ApiOperation({ summary: 'Toggle para suspenção' })
+  suspender(@Param() email: string) {
+    return this.usuarioService.suspend(email);
   }
 }

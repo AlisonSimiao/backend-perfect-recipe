@@ -10,4 +10,8 @@ export class CryptoService {
   create(str: string): string {
     return createHash('md5').update(str).digest('hex');
   }
+
+  get defaultPassword() {
+    return this.create('Abc123');
+  }
 }
