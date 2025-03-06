@@ -77,17 +77,19 @@ export class UsuarioController {
   }
 
   @Patch('/reset-password/:email')
-  @HttpCode(200)
+  @HttpCode(204)
   @ApiParam({
     type: String,
     name: 'email',
   })
   @ApiOperation({ summary: 'reseta senha para default' })
   @UseGuards(AdminGuard)
-  resetsenha() {}
+  resetsenha(@Param() email: string) {
+    return this.usuarioService.resetPassword(email);
+  }
 
   @Post('/suspend/:email')
-  @HttpCode(200)
+  @HttpCode(204)
   @UseGuards(AdminGuard)
   @ApiParam({
     type: String,
