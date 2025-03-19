@@ -1,0 +1,1262 @@
+[
+    {
+        "title": "Leite Integral",
+        "density": 1.03,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Leite Desnatado",
+        "density": 1.03,
+        "manufacturer": "Itambé"
+    },
+    {
+        "title": "Leite Semidesnatado",
+        "density": 1.03,
+        "manufacturer": "Parmalat"
+    },
+    {
+        "title": "Leite em Pó",
+        "density": 0.64,
+        "manufacturer": "Piracanjuba"
+    },
+    {
+        "title": "Leite Condensado",
+        "density": 1.30,
+        "manufacturer": "Moça"
+    },
+    {
+        "title": "Leite de Amêndoas",
+        "density": 1.02,
+        "manufacturer": "Almond Breeze"
+    },
+    {
+        "title": "Leite de Coco",
+        "density": 1.02,
+        "manufacturer": "Sococo"
+    },
+    {
+        "title": "Leite de Soja",
+        "density": 1.02,
+        "manufacturer": "Ades"
+    },
+    {
+        "title": "Leite de Aveia",
+        "density": 1.02,
+        "manufacturer": "Naturis"
+    },
+    {
+        "title": "Leite de Arroz",
+        "density": 1.02,
+        "manufacturer": "Rice Dream"
+    },
+    {
+        "title": "Leite de Castanha",
+        "density": 1.02,
+        "manufacturer": "Milk Brazil"
+    },
+    {
+        "title": "Liga Neutra",
+        "density": 1.10,
+        "manufacturer": "Sorbemix"
+    },
+    {
+        "title": "Estabilizante para Sorvetes",
+        "density": 1.10,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Gelatina em Pó",
+        "density": 1.27,
+        "manufacturer": "Dr. Oetker"
+    },
+    {
+        "title": "Agar-Agar",
+        "density": 1.20,
+        "manufacturer": "Kasvi"
+    },
+    {
+        "title": "Goma Guar",
+        "density": 1.15,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Goma Xantana",
+        "density": 1.15,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Pectina",
+        "density": 1.10,
+        "manufacturer": "CP Kelco"
+    },
+    {
+        "title": "Amido de Milho",
+        "density": 0.60,
+        "manufacturer": "Maizena"
+    },
+    {
+        "title": "Farinha de Trigo",
+        "density": 0.59,
+        "manufacturer": "Dona Benta"
+    },
+    {
+        "title": "Farinha de Arroz",
+        "density": 0.58,
+        "manufacturer": "Farinha Fina"
+    },
+    {
+        "title": "Farinha de Amêndoa",
+        "density": 0.56,
+        "manufacturer": "Naturalis"
+    },
+    {
+        "title": "Farinha de Coco",
+        "density": 0.55,
+        "manufacturer": "Copra"
+    },
+    {
+        "title": "Açúcar Refinado",
+        "density": 1.59,
+        "manufacturer": "União"
+    },
+    {
+        "title": "Açúcar Mascavo",
+        "density": 1.60,
+        "manufacturer": "Native"
+    },
+    {
+        "title": "Açúcar de Coco",
+        "density": 1.58,
+        "manufacturer": "Copra"
+    },
+    {
+        "title": "Açúcar Confeteiro",
+        "density": 1.59,
+        "manufacturer": "União"
+    },
+    {
+        "title": "Xarope de Glicose",
+        "density": 1.40,
+        "manufacturer": "Cargill"
+    },
+    {
+        "title": "Xarope de Milho",
+        "density": 1.38,
+        "manufacturer": "Cargill"
+    },
+    {
+        "title": "Mel",
+        "density": 1.42,
+        "manufacturer": "Apis Flora"
+    },
+    {
+        "title": "Creme de Leite",
+        "density": 0.98,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Gema de Ovo",
+        "density": 1.03,
+        "manufacturer": "Granja Mantiqueira"
+    },
+    {
+        "title": "Baunilha em Pó",
+        "density": 1.05,
+        "manufacturer": "Dr. Oetker"
+    },
+    {
+        "title": "Extrato de Baunilha",
+        "density": 1.05,
+        "manufacturer": "Dr. Oetker"
+    },
+    {
+        "title": "Chocolate em Pó",
+        "density": 0.85,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Cacau em Pó",
+        "density": 0.85,
+        "manufacturer": "Cacau Show"
+    },
+    {
+        "title": "Óleo de Coco",
+        "density": 0.92,
+        "manufacturer": "Copra"
+    },
+    {
+        "title": "Manteiga",
+        "density": 0.91,
+        "manufacturer": "Itambé"
+    },
+    {
+        "title": "Margarina",
+        "density": 0.90,
+        "manufacturer": "Qualy"
+    },
+    {
+        "title": "Corante Alimentício Vermelho",
+        "density": 1.20,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Corante Alimentício Azul",
+        "density": 1.20,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Corante Alimentício Verde",
+        "density": 1.20,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Corante Alimentício Amarelo",
+        "density": 1.20,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Morango",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Baunilha",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chocolate",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Coco",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Limão",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Laranja",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Café",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Caramelo",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Canela",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Hortelã",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Amêndoa",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Nozes",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Pistache",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Framboesa",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Manga",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Maracujá",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Abacaxi",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Pêssego",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Uva",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Cereja",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Melancia",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Melão",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Abacate",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Goiaba",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Açaí",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Cupuaçu",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Graviola",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Tamarindo",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Guaraná",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Pitanga",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Jabuticaba",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Carambola",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Caju",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Romã",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Figo",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Damasco",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Ameixa",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Pera",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Cenoura",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Beterraba",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Gengibre",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Hortelã",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Manjericão",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Alecrim",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Tomate",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Pimenta",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Canela",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Café",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá Verde",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá Preto",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Camomila",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Erva-Doce",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Hortelã",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Frutas Vermelhas",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Maracujá",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Limão",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Aroma Artificial de Chá de Laranja",
+        "density": 1.05,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Morango",
+        "density": 1.02,
+        "manufacturer": "Fazenda Feliz"
+    },
+    {
+        "title": "Banana",
+        "density": 1.01,
+        "manufacturer": "Frutas do Vale"
+    },
+    {
+        "title": "Abacaxi",
+        "density": 1.02,
+        "manufacturer": "Fruticultura Tropical"
+    },
+    {
+        "title": "Manga",
+        "density": 1.04,
+        "manufacturer": "Frutas do Sertão"
+    },
+    {
+        "title": "Maracujá",
+        "density": 1.03,
+        "manufacturer": "Fazenda Sol Nascente"
+    },
+    {
+        "title": "Limão",
+        "density": 1.02,
+        "manufacturer": "Citricultura Paulista"
+    },
+    {
+        "title": "Laranja",
+        "density": 1.03,
+        "manufacturer": "Citricultura Paulista"
+    },
+    {
+        "title": "Kiwi",
+        "density": 1.02,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Maçã",
+        "density": 1.02,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Pêssego",
+        "density": 1.03,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Uva",
+        "density": 1.02,
+        "manufacturer": "Vinícola Aurora"
+    },
+    {
+        "title": "Coco",
+        "density": 1.02,
+        "manufacturer": "Coco do Nordeste"
+    },
+    {
+        "title": "Goiaba",
+        "density": 1.04,
+        "manufacturer": "Frutas do Cerrado"
+    },
+    {
+        "title": "Acerola",
+        "density": 1.03,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Cajá",
+        "density": 1.02,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Cupuaçu",
+        "density": 1.03,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Graviola",
+        "density": 1.02,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Tamarindo",
+        "density": 1.03,
+        "manufacturer": "Frutas Exóticas"
+    },
+    {
+        "title": "Açaí",
+        "density": 1.02,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Guaraná",
+        "density": 1.03,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Pitanga",
+        "density": 1.02,
+        "manufacturer": "Frutas do Cerrado"
+    },
+    {
+        "title": "Jabuticaba",
+        "density": 1.03,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Carambola",
+        "density": 1.02,
+        "manufacturer": "Frutas Tropicais"
+    },
+    {
+        "title": "Caju",
+        "density": 1.03,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Romã",
+        "density": 1.02,
+        "manufacturer": "Frutas do Mediterrâneo"
+    },
+    {
+        "title": "Figo",
+        "density": 1.03,
+        "manufacturer": "Frutas do Mediterrâneo"
+    },
+    {
+        "title": "Damasco",
+        "density": 1.02,
+        "manufacturer": "Frutas do Mediterrâneo"
+    },
+    {
+        "title": "Ameixa",
+        "density": 1.03,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Pera",
+        "density": 1.02,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Melancia",
+        "density": 1.01,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Melão",
+        "density": 1.02,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Abacate",
+        "density": 1.03,
+        "manufacturer": "Frutas Tropicais"
+    },
+    {
+        "title": "Cereja",
+        "density": 1.02,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Framboesa",
+        "density": 1.03,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Amora",
+        "density": 1.02,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Mirtilo",
+        "density": 1.03,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Groselha",
+        "density": 1.02,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Physalis",
+        "density": 1.02,
+        "manufacturer": "Frutas Exóticas"
+    },
+    {
+        "title": "Caqui",
+        "density": 1.03,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Nectarina",
+        "density": 1.02,
+        "manufacturer": "Frutas do Sul"
+    },
+    {
+        "title": "Ameixa Seca",
+        "density": 1.03,
+        "manufacturer": "Frutas do Mediterrâneo"
+    },
+    {
+        "title": "Tangerina",
+        "density": 1.03,
+        "manufacturer": "Citricultura Paulista"
+    },
+    {
+        "title": "Toranja",
+        "density": 1.03,
+        "manufacturer": "Frutas Importadas"
+    },
+    {
+        "title": "Lichia",
+        "density": 1.02,
+        "manufacturer": "Frutas Exóticas"
+    },
+    {
+        "title": "Rambutão",
+        "density": 1.02,
+        "manufacturer": "Frutas Exóticas"
+    },
+    {
+        "title": "Carambola",
+        "density": 1.02,
+        "manufacturer": "Frutas Tropicais"
+    },
+    {
+        "title": "Pitaya",
+        "density": 1.02,
+        "manufacturer": "Frutas Exóticas"
+    },
+    {
+        "title": "Mamão",
+        "density": 1.03,
+        "manufacturer": "Frutas Tropicais"
+    },
+    {
+        "title": "Cajá-Manga",
+        "density": 1.02,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Sapoti",
+        "density": 1.03,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Amendoim",
+        "density": 0.62,
+        "manufacturer": "Fazenda do Sol"
+    },
+    {
+        "title": "Amendoim Torrado",
+        "density": 0.65,
+        "manufacturer": "Fazenda do Sol"
+    },
+    {
+        "title": "Amendoim Granulado",
+        "density": 0.68,
+        "manufacturer": "Fazenda do Sol"
+    },
+    {
+        "title": "Farinha de Amendoim",
+        "density": 0.60,
+        "manufacturer": "Fazenda do Sol"
+    },
+    {
+        "title": "Castanha de Caju",
+        "density": 0.70,
+        "manufacturer": "Cajú do Nordeste"
+    },
+    {
+        "title": "Castanha de Caju Torrada",
+        "density": 0.72,
+        "manufacturer": "Cajú do Nordeste"
+    },
+    {
+        "title": "Castanha de Caju Granulada",
+        "density": 0.75,
+        "manufacturer": "Cajú do Nordeste"
+    },
+    {
+        "title": "Farinha de Castanha de Caju",
+        "density": 0.68,
+        "manufacturer": "Cajú do Nordeste"
+    },
+    {
+        "title": "Pistache",
+        "density": 0.78,
+        "manufacturer": "Frutas Secas do Oriente"
+    },
+    {
+        "title": "Pistache Torrado",
+        "density": 0.80,
+        "manufacturer": "Frutas Secas do Oriente"
+    },
+    {
+        "title": "Pistache Granulado",
+        "density": 0.82,
+        "manufacturer": "Frutas Secas do Oriente"
+    },
+    {
+        "title": "Farinha de Pistache",
+        "density": 0.75,
+        "manufacturer": "Frutas Secas do Oriente"
+    },
+    {
+        "title": "Amêndoa",
+        "density": 0.70,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Amêndoa Torrada",
+        "density": 0.72,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Amêndoa Granulada",
+        "density": 0.75,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Farinha de Amêndoa",
+        "density": 0.68,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Avelã",
+        "density": 0.65,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Avelã Torrada",
+        "density": 0.68,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Avelã Granulada",
+        "density": 0.70,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Farinha de Avelã",
+        "density": 0.62,
+        "manufacturer": "Frutas Secas do Mediterrâneo"
+    },
+    {
+        "title": "Nozes",
+        "density": 0.75,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Nozes Torradas",
+        "density": 0.78,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Nozes Granuladas",
+        "density": 0.80,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Farinha de Nozes",
+        "density": 0.72,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Macadâmia",
+        "density": 0.75,
+        "manufacturer": "Frutas Secas do Havaí"
+    },
+    {
+        "title": "Macadâmia Torrada",
+        "density": 0.78,
+        "manufacturer": "Frutas Secas do Havaí"
+    },
+    {
+        "title": "Macadâmia Granulada",
+        "density": 0.80,
+        "manufacturer": "Frutas Secas do Havaí"
+    },
+    {
+        "title": "Farinha de Macadâmia",
+        "density": 0.72,
+        "manufacturer": "Frutas Secas do Havaí"
+    },
+    {
+        "title": "Pecã",
+        "density": 0.70,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Pecã Torrada",
+        "density": 0.72,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Pecã Granulada",
+        "density": 0.75,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Farinha de Pecã",
+        "density": 0.68,
+        "manufacturer": "Frutas Secas do Sul"
+    },
+    {
+        "title": "Castanha-do-Pará",
+        "density": 0.75,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Castanha-do-Pará Torrada",
+        "density": 0.78,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Castanha-do-Pará Granulada",
+        "density": 0.80,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Farinha de Castanha-do-Pará",
+        "density": 0.72,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Semente de Girassol",
+        "density": 0.60,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Semente de Girassol Torrada",
+        "density": 0.62,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Semente de Girassol Granulada",
+        "density": 0.65,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Farinha de Semente de Girassol",
+        "density": 0.58,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Semente de Abóbora",
+        "density": 0.55,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Semente de Abóbora Torrada",
+        "density": 0.58,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Semente de Abóbora Granulada",
+        "density": 0.60,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Farinha de Semente de Abóbora",
+        "density": 0.52,
+        "manufacturer": "Grãos do Cerrado"
+    },
+    {
+        "title": "Linhaça",
+        "density": 0.65,
+        "manufacturer": "Grãos Saudáveis"
+    },
+    {
+        "title": "Linhaça Dourada",
+        "density": 0.65,
+        "manufacturer": "Grãos Saudáveis"
+    },
+    {
+        "title": "Farinha de Linhaça",
+        "density": 0.60,
+        "manufacturer": "Grãos Saudáveis"
+    },
+    {
+        "title": "Chia",
+        "density": 0.70,
+        "manufacturer": "Grãos Saudáveis"
+    },
+    {
+        "title": "Farinha de Chia",
+        "density": 0.65,
+        "manufacturer": "Grãos Saudáveis"
+    },
+    {
+        "title": "Oreo",
+        "density": 0.55,
+        "manufacturer": "Mondelez"
+    },
+    {
+        "title": "Ovo Maltine",
+        "density": 0.60,
+        "manufacturer": "Maltine"
+    },
+    {
+        "title": "Creme de Chocolate com Avelã",
+        "density": 1.20,
+        "manufacturer": "Nutella"
+    },
+    {
+        "title": "Kit Kat",
+        "density": 0.50,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "M&M's",
+        "density": 0.65,
+        "manufacturer": "Mars"
+    },
+    {
+        "title": "Snickers",
+        "density": 0.70,
+        "manufacturer": "Mars"
+    },
+    {
+        "title": "Twix",
+        "density": 0.68,
+        "manufacturer": "Mars"
+    },
+    {
+        "title": "Bis",
+        "density": 0.55,
+        "manufacturer": "Lacta"
+    },
+    {
+        "title": "Chocolate em Pó Nescau",
+        "density": 0.85,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Chocolate Granulado",
+        "density": 0.75,
+        "manufacturer": "Garoto"
+    },
+    {
+        "title": "Chocolate em Barra Lacta",
+        "density": 0.90,
+        "manufacturer": "Lacta"
+    },
+    {
+        "title": "Chocolate Branco",
+        "density": 0.95,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Doce de Leite",
+        "density": 1.30,
+        "manufacturer": "Itambé"
+    },
+    {
+        "title": "Leite Condensado",
+        "density": 1.30,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Paçoca",
+        "density": 0.70,
+        "manufacturer": "Santa Helena"
+    },
+    {
+        "title": "Granola",
+        "density": 0.45,
+        "manufacturer": "Nestlé"
+    },
+    {
+        "title": "Calda de Caramelo",
+        "density": 1.35,
+        "manufacturer": "Hershey's"
+    },
+    {
+        "title": "Calda de Chocolate",
+        "density": 1.30,
+        "manufacturer": "Hershey's"
+    },
+    {
+        "title": "Calda de Morango",
+        "density": 1.25,
+        "manufacturer": "Hershey's"
+    },
+    {
+        "title": "Calda de Frutas Vermelhas",
+        "density": 1.25,
+        "manufacturer": "Hershey's"
+    },
+    {
+        "title": "Calda de Avelã",
+        "density": 1.30,
+        "manufacturer": "Nutella"
+    },
+    {
+        "title": "Calda de Café",
+        "density": 1.30,
+        "manufacturer": "Starbucks"
+    },
+    {
+        "title": "Calda de Baunilha",
+        "density": 1.25,
+        "manufacturer": "Dr. Oetker"
+    },
+    {
+        "title": "Calda de Coco",
+        "density": 1.25,
+        "manufacturer": "Copra"
+    },
+    {
+        "title": "Calda de Limão",
+        "density": 1.25,
+        "manufacturer": "Dr. Oetker"
+    },
+    {
+        "title": "Calda de Maracujá",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Abacaxi",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Manga",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Açaí",
+        "density": 1.25,
+        "manufacturer": "Sambazon"
+    },
+    {
+        "title": "Calda de Cupuaçu",
+        "density": 1.25,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Calda de Graviola",
+        "density": 1.25,
+        "manufacturer": "Amazônia Frutas"
+    },
+    {
+        "title": "Calda de Goiaba",
+        "density": 1.25,
+        "manufacturer": "Frutas do Cerrado"
+    },
+    {
+        "title": "Calda de Acerola",
+        "density": 1.25,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Calda de Caju",
+        "density": 1.25,
+        "manufacturer": "Frutas do Nordeste"
+    },
+    {
+        "title": "Calda de Pêssego",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Uva",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Cereja",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Framboesa",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Amora",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Mirtilo",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Groselha",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Physalis",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Caqui",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Nectarina",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Ameixa",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Tangerina",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Toranja",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Lichia",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Rambutão",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Pitaya",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Mamão",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Cajá-Manga",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    },
+    {
+        "title": "Calda de Sapoti",
+        "density": 1.25,
+        "manufacturer": "Duas Rodas"
+    }
+]

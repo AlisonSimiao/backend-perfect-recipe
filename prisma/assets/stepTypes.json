@@ -1,0 +1,121 @@
+[
+    {
+        "type": "adicionar ingrediente"
+    },
+    {
+        "type": "adicionar recipiente"
+    },
+    {
+        "type": "transferir",
+        "params": {
+            "source": "sourceStageIndex"
+        }
+    },
+    {
+        "type": "misturar",
+        "requiredAppliance": {
+            "type": "batedeira"
+        },
+        "parameters": {
+            "speed": [
+                "low",
+                "medium",
+                "high"
+            ],
+            "duration": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    },
+    {
+        "type": "cozinhar",
+        "requiredAppliance": {
+            "type": "fogão"
+        },
+        "parameters": {
+            "power": [
+                "low",
+                "medium",
+                "high"
+            ],
+            "duration": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    },
+    {
+        "type": "liquidificar",
+        "requiredAppliance": {
+            "type": "liquidificador"
+        },
+        "parameters": {
+            "speed": [
+                "low",
+                "medium",
+                "high"
+            ],
+            "duration": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    },
+    {
+        "type": "bater",
+        "requiredAppliance": {
+            "type": "batedeira"
+        },
+        "parameters": {
+            "speed": [
+                "low",
+                "medium",
+                "high"
+            ],
+            "duration": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    },
+    {
+        "type": "descansar",
+        "parameters": {
+            "duration": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    },
+    {
+        "type": "assar",
+        "requiredAppliance": {
+            "type": "forno"
+        },
+        "parameters": {
+            "temperature": {
+                "unit": ["celsius", "fahrenheit"],
+                "min": 100,
+                "max": 500
+            },
+            "duration": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    },
+    {
+        "type": "mexer",
+        "parameters": {
+            "duration": {
+                "min": 1,
+                "max": 1440
+            },
+            "interval": {
+                "min": 1,
+                "max": 1440
+            }
+        }
+    }
+]
